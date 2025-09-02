@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Alemán Nicaragüense - Padres de Familia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+<style>
+  /* Animaciones */
+  @keyframes fadeInUp { 0% {opacity:0; transform:translateY(20px);} 100% {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInPage { 0% {opacity:0; transform:scale(0.95);} 100% {opacity:1; transform:scale(1);} }
+  @keyframes slideInLeft { 0% {opacity:0; transform:translateX(-50px);} 100% {opacity:1; transform:translateX(0);} }
+  @keyframes slideInRight { 0% {opacity:0; transform:translateX(50px);} 100% {opacity:1; transform:translateX(0);} }
+  @keyframes floatBounce { 0% { transform: translateY(0) scale(1);} 25% { transform: translateY(-6px) scale(1.05);} 50% { transform: translateY(0) scale(1);} 75% { transform: translateY(-3px) scale(1.02);} 100% { transform: translateY(0) scale(1);} }
+
+  body { opacity:0; animation: fadeInPage 1s forwards; transform-origin: center; }
+  .fade-in-up, .slide-left, .slide-right { opacity:0; }
+
+  /* Botones hover zoom */
+  .hover-zoom:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+  .hover-zoom { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+  /* Iconos flotantes */
+  .icon-float { display:inline-block; font-size:3rem; animation: floatBounce 3s ease-in-out infinite; transition: transform 0.3s ease, text-shadow 0.3s ease; }
+  .icon-float:hover { transform: translateY(-5px) rotate(-10deg) scale(1.3); text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+
+  /* Tarjetas enlaces */
+  .link-card { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; border-radius:1rem; color:white; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; text-decoration:none; position:relative; }
+  .link-card:hover { transform: scale(1.1); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+  .link-icon { display:flex; align-items:center; justify-content:center; padding:1rem; border-radius:50%; margin-bottom:0.5rem; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease; }
+  .link-card:hover .link-icon { background-color:white; transform: scale(1.3); color:#000; }
+
+  /* Colores distintos */
+  .bg-portal { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+  .bg-classroom { background: linear-gradient(90deg, #0f766e, #14b8a6); }
+  .bg-calendar { background: linear-gradient(90deg, #b45309, #f59e0b); }
+  .bg-drive { background: linear-gradient(90deg, #15803d, #22c55e); }
+  .bg-comunicados { background: linear-gradient(90deg, #6b21a8, #a855f7); }
+  .bg-whatsapp { background: linear-gradient(90deg, #047857, #10b981); }
+  .bg-facebook { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+  .bg-instagram { background: linear-gradient(90deg, #f97316, #f43f5e); }
+  .bg-youtube { background: linear-gradient(90deg, #dc2626, #f87171); }
+  .bg-kindergarten { background: linear-gradient(90deg, #f59e0b, #facc15); }
+  .bg-colegio { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bg-citas { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+  .bg-directorio { background: linear-gradient(90deg, #065f46, #10b981); }
+  .bg-consultas { background: linear-gradient(90deg, #92400e, #f59e0b); }
+
+  /* Mapas */
+  .map-container { border-radius:1rem; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom:1.5rem; }
+  .map-container:hover { transform: scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+  
+  /* Flip Card para Certificado de Notas */
+.perspective { perspective: 1000px; }
+.flip-card { width: 100%; height: 200px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.flip-card-front { color: white; }
+.flip-card-back { background: linear-gradient(90deg, #6b21a8, #a855f7); transform: rotateY(180deg); color: white; padding: 1rem; }
+
+/* Flip Card optimizado */
+.perspective { perspective: 1000px; }
+.flip-card { width: 100%; height: 220px; cursor: pointer; border-radius: 1rem; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.flip-card-front {
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.flip-card-back {
+  background: linear-gradient(90deg, #6b21a8, #a855f7);
+  transform: rotateY(180deg);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+.flip-card-back a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
+#slideshow-img {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+#slideshow-img.show {
+  opacity: 1;
+}
+
+#slideshow-img {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 1rem;
+}
+
+/* Galeria de Imagen */
+
+#slideshow-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#slideshow .relative:hover #slideshow-img {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.icon-rotate-hover {
+  transition: transform 0.5s ease;
+}
+
+.icon-rotate-hover:hover {
+  transform: rotate(360deg);
+}
+
+.icon-rotate-hover {
+  transition: transform 0.5s ease;
+}
+
+.icon-rotate-hover:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Efecto flotante base */
+.icon-float {
+  display: inline-block;
+  font-size: 3rem;
+  animation: floatBounce 3s ease-in-out infinite;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover: solo gira mientras está el mouse */
+.icon-float:hover img {
+  animation: spin 1s linear infinite;
+}
+
+/* Animación flotante */
+@keyframes floatBounce {
+  0% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-6px) scale(1.05); }
+  50% { transform: translateY(0) scale(1); }
+  75% { transform: translateY(-3px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Animación de giro */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.icon-rotate-hover {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.icon-rotate-hover:hover {
+  transform: rotate(360deg);
+}
+
+/* Miniaturas con zoom al pasar el mouse */
+  .thumbnail {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.3s, z-index 0.3s;
+    cursor: pointer;
+  }
+
+  .thumbnail:hover {
+    transform: scale(2); /* Ajusta el zoom */
+    z-index: 10;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .thumbnail-container {
+    position: relative;
+  }
+  
+  /* CSS para Whassap */
+
+/* =========================================
+   Chat flotante WhatsApp optimizado
+   ========================================= */
+
+/* Contenedor del chat */
+.chat-container {
+  position: fixed;       /* Fija en la pantalla */
+  bottom: 20px;          /* Separación inferior */
+  right: 20px;           /* Separación derecha */
+  z-index: 9999;         /* Siempre encima */
+}
+
+/* Burbuja de WhatsApp */
+#chatBubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite; /* animación de pulso */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#chatBubble:hover {
+  transform: scale(1.1);
+}
+
+#chatBubble img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Ventana de chat */
+.chat-window {
+  display: none;
+  width: 280px;
+  max-height: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  flex-direction: column;
+  position: fixed;      /* fundamental para flotar */
+  bottom: 90px;         /* separación respecto a la burbuja */
+  right: 20px;
+  overflow: hidden;
+  animation: slideIn 0.3s forwards;
+  z-index: 10000;       /* siempre encima de todo */
+}
+
+/* Cabecera del chat */
+.chat-header {
+  background-color: #25D366;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Cuerpo del chat */
+.chat-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #f0f0f0;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.message.bot { background-color: #e0ffe0; align-self: flex-start; }
+.message.user { background-color: #dcf8c6; align-self: flex-end; }
+
+/* Pie de chat (input + botón) */
+.chat-footer {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  align-items: center;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.chat-footer button {
+  background-color: #25D366;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.chat-footer button:hover {
+  background-color: #1ebe57;
+}
+
+/* =========================================
+   Animaciones
+   ========================================= */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- HEADER -->
+<header class="bg-white shadow-md sticky top-0 z-50 slide-left">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <div class="flex items-center space-x-3">
+      <a href="https://www.dsm.edu.ni" target="_blank" class="flex items-center space-x-3">
+        <img src="https://raw.githubusercontent.com/eyner93/mantenimiento-logo/main/logo%20new%20coalnic.png" alt="Logo Colegio Alemán" class="h-14">
+        <h1 class="text-xl font-bold hover:text-blue-600">Colegio Alemán Nicaragüense</h1>
+      </a>
+    </div>
+    <nav>
+      <ul class="flex space-x-6 font-medium">
+        <li><a href="#inicio" class="hover:text-blue-600">Inicio</a></li>
+        <li><a href="#avisos" class="hover:text-blue-600">Avisos</a></li>
+        <li><a href="#enlaces" class="hover:text-blue-600">Enlaces</a></li>
+		<li><a href="#formularios" class="hover:text-blue-600">Formulario de Interés</a></li>
+        <li><a href="#redes" class="hover:text-blue-600">Redes Sociales</a></li>
+        <li><a href="#contacto" class="hover:text-blue-600">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- SECCIÓN PRINCIPAL -->
+<section id="inicio" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
+  <h2 class="text-3xl font-bold mb-4">Bienvenidos Padres de Familia</h2>
+  <p class="max-w-2xl mx-auto text-lg">
+    Estimados padres, este espacio ha sido creado para que encuentren de forma rápida y sencilla 
+    todos los enlaces e información importante de nuestra institución.  
+    Nuestro compromiso es mantenerlos informados y cercanos a la vida escolar de sus hijos.
+  </p>
+</section>
+
+
+
+<!-- GALERIA DE IMAGENES -->
+<section id="slideshow" class="container mx-auto py-16 text-center">
+  <h2 class="text-2xl font-bold mb-4">Galería de Imágenes</h2>
+
+  <div class="relative inline-block rounded-xl shadow-lg overflow-hidden"
+       style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+
+    <img id="slideshow-img" src="https://via.placeholder.com/800x450" 
+         alt="Imagen" 
+         class="rounded-xl shadow-lg h-auto object-contain transition duration-500"
+         style="width: 40vw; max-width: 400px; display:block;">
+    
+    <!-- Botones de navegación -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10095;
+    </button>
+  </div>
+</section>
+
+
+<!-- ENLACES DE INTERÉS -->
+<section id="enlaces" class="container mx-auto py-16 slide-left">
+  <h2 class="text-2xl font-bold text-center mb-8">Enlaces de Interés</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center" id="cards-container">
+    <a href="https://portales.dsm.edu.ni/" target="_blank" class="link-card bg-portal">
+  <span class="icon-float link-icon icon-rotate-hover">📘</span> Portal de Notas</a>
+
+    <a href="https://classroom.google.com/" target="_blank" class="link-card bg-classroom"><span class="icon-float link-icon icon-rotate-hover">🎓</span> Aula Virtual</a>
+    <a href="https://calendar.google.com/calendar/u/0/embed?src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com" target="_blank" class="link-card bg-calendar"><span class="icon-float link-icon icon-rotate-hover">📅</span> Calendario Académico</a>
+    <a href="https://drive.google.com/drive/u/0/folders/1asMTqUFoUJGhnChEPOxPjB4ufLsFZ8yD" target="_blank" class="link-card bg-drive"><span class="icon-float link-icon icon-rotate-hover">📖</span> Reglamentos</a>
+    <a href="#" class="link-card bg-comunicados"><span class="icon-float link-icon icon-rotate-hover">📢</span> Comunicados</a>
+    <a href="https://api.whatsapp.com/send?phone=%2B50587001916" target="_blank" class="link-card bg-whatsapp">
+  <span class="icon-float link-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp" class="w-16 h-16">
+  </span>
+  WhatsApp Admisiones
+</a>
+    <a href="https://sites.google.com/coalnic.edu.ni/padreskindergarten/p%C3%A1gina-principal" target="_blank" class="link-card bg-kindergarten"><span class="icon-float link-icon icon-rotate-hover">🏫</span> Intranet Padres Kindergarten</a>
+    <a href="https://sites.google.com/coalnic.edu.ni/padres-colegio/p%C3%A1gina-principal" target="_blank" class="link-card bg-colegio"><span class="icon-float link-icon icon-rotate-hover">🏫</span> Intranet Padres Colegio</a>
+    <a href="https://coalnic.trafft.com/" target="_blank" class="link-card bg-citas"><span class="icon-float link-icon icon-rotate-hover">📅</span> Portal de Citas</a>
+    <a href="https://drive.google.com/file/d/1-OlOGF76-dRCogWrlMjQUthQrsU92nbZ/view?usp=drive_link" target="_blank" class="link-card bg-directorio"><span class="icon-float link-icon icon-rotate-hover">👩‍🏫</span> Directorio Profesores</a>
+    <a href="https://sites.google.com/d/1cvty-_JVgsi8mhDAX1Ro2-sEmD5_nhRM/p/1_OoaJMl4p2anTA5jC5Dkzp0KcPIIu7SQ/edit" target="_blank" class="link-card bg-consultas"><span class="icon-float link-icon icon-rotate-hover">📖</span> Tarde de Consultas</a>
+  </div>
+</section>
+
+<!-- FORMULARIO DE INTERÉS -->
+
+<section id="formularios" class="container mx-auto py-16 slide-left">
+  <h2 class="text-2xl font-bold text-center mb-8">Formulario de Interés</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+
+    <!-- Casos de Enfermedad / Cita Médica -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3k3R5-HvngH1AUw54vf5dKhVdFi8InDj-0D-0Okc3e9D7FA/viewform" 
+       target="_blank" class="link-card bg-citas hover-zoom">
+      <span class="icon-float link-icon">🩺</span>
+      Casos de Enfermedad / Cita Médica
+    </a>
+
+    <!-- Celebración de Cumpleaños -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9vm3xnc_xOGMsOopiUt1mbKTUuaFCy4V2ZzhcncLw-eo1Xw/viewform" 
+       target="_blank" class="link-card bg-calendar hover-zoom">
+      <span class="icon-float link-icon">🎉</span>
+      Celebración de Cumpleaños
+    </a>
+
+    <!-- Cambio de Ruta - Transporte Escolar -->
+    <a href="https://docs.google.com/forms/u/4/d/e/1FAIpQLSfBDF8ewzeYQ0VWL9lvG81f9pRAkQe3zCfLV-I1-CnaYezKGA/viewform?pli=1" 
+       target="_blank" class="link-card bg-drive hover-zoom">
+      <span class="icon-float link-icon">🚌</span>
+      Cambio de Ruta - Transporte Escolar
+    </a>
+
+<div class="relative perspective">
+  <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card-inner">
+      <!-- Lado frontal -->
+      <div class="flip-card-front flex flex-col items-center justify-center">
+        <span class="icon-float link-icon text-4xl">📄</span>
+        Certificado de Notas
+      </div>
+      <!-- Lado trasero -->
+      <div class="flip-card-back flex flex-col items-center justify-center"
+           onclick="window.location.href='mailto:secretaria.academica@dsm.edu.ni?subject=Solicitud%20de%20Certificado%20de%20Notas&body=Estimado%20equipo,%0A%0AQuisiera%20solicitar%20el%20certificado%20de%20notas.%0A%0AGracias.'">
+        <p>Por favor, enviar la solicitud de certificado de notas al siguiente correo:</p>
+        <span class="underline cursor-pointer text-white font-bold">secretaria.academica@dsm.edu.ni</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+<!-- NUESTRAS REDES SOCIALES -->
+<section id="redes" class="container mx-auto py-16 slide-left">
+  <h2 class="text-2xl font-bold text-center mb-8">Nuestras Redes Sociales</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+
+<!-- Facebook -->
+<a href="https://www.facebook.com/dsmanagua" target="_blank" class="link-card bg-facebook hover-zoom">
+  <span class="icon-float link-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/2504/2504903.png" alt="Facebook" class="w-16 h-16">
+  </span>
+  Facebook
+</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/dsmanagua" target="_blank" class="link-card bg-instagram hover-zoom">
+  <span class="icon-float link-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/1409/1409946.png" alt="Instagram" class="w-16 h-16">
+  </span>
+  Instagram
+</a>
+
+<!-- YouTube -->
+<a href="https://youtube.com/@colegioalemannicaraguense9449?feature=shared" target="_blank" class="link-card bg-youtube hover-zoom">
+  <span class="icon-float link-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/3938/3938037.png" alt="YouTube" class="w-16 h-16">
+  </span>
+  YouTube
+</a>
+
+
+  </div>
+</section>
+
+<!-- AVISOS -->
+<section id="avisos" class="bg-gray-100 py-16 slide-right">
+  <div class="container mx-auto">
+    <h2 class="text-2xl font-bold text-center mb-8">Avisos Importantes</h2>
+    <div class="space-y-4 max-w-3xl mx-auto" id="avisos-container">
+      <div class="bg-white shadow p-4 rounded-xl"><span>📌 Reunión de Padres de Familia - Viernes 15 de Septiembre, 5:00 pm.</span></div>
+      <div class="bg-white shadow p-4 rounded-xl"><span>📌 Entrega de boletines - Lunes 25 de Septiembre, 8:00 am.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Chat flotante estilo interactivo -->
+<div class="chat-container">
+  <div class="chat-bubble" id="chatBubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </div>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <span>Chatea con nosotros</span>
+      <button id="closeChat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="message bot">¡Hola! 👋</div>
+      <div class="message bot">Escribe tu mensaje y te responderemos por WhatsApp.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userMessage" placeholder="Escribe un mensaje..." />
+      <button id="sendMessage">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAPAS -->
+<section id="mapas" class="container mx-auto py-16 slide-left">
+  <h2 class="text-2xl font-bold text-center mb-8">Nuestras Sedes</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="maps-container">
+    <div class="fade-in-up" data-delay="0">
+      <h3 class="text-lg font-semibold mb-2 text-center">📍 Mapa - Sede Principal</h3>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.907759263728!2d-86.32903768469244!3d12.086390688590902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f715485c0c982e3%3A0x38f5386f0bf7f3a4!2sColegio%20Alem%C3%A1n%20Nicarag%C3%BCense!5e0!3m2!1ses!2sni!4v1693537871117!5m2!1ses!2sni" 
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="fade-in-up" data-delay="0.2">
+      <h3 class="text-lg font-semibold mb-2 text-center">📍 Mapa - Kindergarten</h3>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15717.30707656763!2d-86.3339508!3d12.087179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71548422124c7b%3A0x422e7d5cbae6f852!2sKindergarten%20Colegio%20Alem%C3%A1n%20Nicarag%C3%BCense!5e0!3m2!1ses-419!2sni!4v1693251390123!5m2!1ses-419!2sni" 
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO DE AYUDA -->
+<section id="soporte" class="py-12 bg-gray-100">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-center mb-6">Formulario de Ayuda</h2>
+    <form id="formAyuda" action="https://formsubmit.co/helpdesk@dsm.edu.ni" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-xl shadow-md space-y-4">
+
+      
+      <!-- Nombre -->
+      <div>
+        <label for="nombre" class="block font-medium">Nombre del solicitante:</label>
+        <input type="text" id="nombre" name="nombre" required class="w-full p-2 border rounded-lg">
+      </div>
+	  
+      <!-- Correo del solicitante -->
+      <div>
+      <label for="correo" class="block font-medium">Correo electrónico:</label>
+     <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" class="w-full p-2 border rounded-lg">
+      </div>
+
+      <!-- Descripción -->
+      <div>
+        <label for="mensaje" class="block font-medium">¿En qué necesita ayuda?</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required class="w-full p-2 border rounded-lg"></textarea>
+      </div>
+
+      <!-- Archivos adjuntos -->
+      <div>
+        <label for="archivo" class="block font-medium">Adjuntar capturas (puedes seleccionar varias):</label>
+        <input type="file" id="archivo" name="archivo[]" accept="image/*" multiple class="w-full">
+        <div id="preview" class="flex flex-wrap mt-4 gap-2"></div>
+      </div>
+
+      <!-- Config ocultas -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Nueva solicitud de soporte desde el sitio web">
+     <input type="hidden" name="_next" value="https://formsubmit.co/thanks.html">
+
+      <!-- Botón -->
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+        Enviar solicitud
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto" class="bg-blue-900 text-white py-8 slide-left">
+  <div class="container mx-auto text-center space-y-4">
+    <p class="font-semibold">Deutsche Schule Managua - Colegio Alemán Nicaragüense</p>
+    <p>Dirección: Km 10.5 Carretera Sur, 800 al oeste, Managua, Nicaragua</p>
+    <p>Teléfono: +505 22981000 | Correo: <a href="mailto:info@dsm.edu.ni" class="underline">info@dsm.edu.ni</a></p>
+	 <!-- Celular WhatsApp -->
+    <p class="flex justify-center items-center space-x-2">
+      <span>Celular:</span>
+      <a href="https://wa.me/50588565989" target="_blank" class="underline hover:text-green-300">8856-5989</a>
+    </p>
+    <p>Horario de atención: 07:30am a 05:00pm</p>
+  </div>
+</footer>
+
+<!-- Animaciones e Intersección -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const target = entry.target;
+        if(target.id==='cards-container'){
+          const cards = target.querySelectorAll('a');
+          cards.forEach((card,index)=>{ card.style.animation=`fadeInUp 0.6s forwards`; card.style.animationDelay=`${index*0.15}s`; });
+        } else if(target.id==='avisos-container'){
+          const avisos = target.querySelectorAll('div');
+          avisos.forEach((aviso,index)=>{ aviso.style.animation=`fadeInUp 0.6s forwards`; aviso.style.animationDelay=`${index*0.2}s`; });
+        } else if(target.closest('#maps-container')){
+          const delay = target.dataset.delay || 0;
+          target.style.animation = `fadeInUp 0.8s forwards`;
+          target.style.animationDelay = `${delay}s`;
+        } else {
+          if(target.classList.contains('fade-in-up')) target.style.animation='fadeInUp 0.8s forwards';
+          if(target.classList.contains('slide-left')) target.style.animation='slideInLeft 0.8s forwards';
+          if(target.classList.contains('slide-right')) target.style.animation='slideInRight 0.8s forwards';
+        }
+        observer.unobserve(target);
+      }
+    });
+  },{threshold:0.2});
+
+  document.querySelectorAll('.fade-in-up,.slide-left,.slide-right,#cards-container,#avisos-container,#maps-container .fade-in-up').forEach(el=>observer.observe(el));
+</script>
+<script>
+const images = [
+  {"name":"25 ago.jpg","url":"imagenes/25_ago.jpg","color":"#f59e0b"},
+  {"name":"27 ago.jpg","url":"imagenes/27_ago.jpg","color":"#3b82f6"},
+  {"name":"1 sept.jpg","url":"imagenes/1_sept.jpg","color":"#10b981"},
+  {"name":"3 sept.jpg","url":"imagenes/3_sept.jpg","color":"#f43f5e"},
+  {"name":"8 sept.jpg","url":"imagenes/8_sept.jpg","color":"#a855f7"},
+  {"name":"10 sept.jpg","url":"imagenes/10_sept.jpg","color":"#f87171"}
+];
+
+let current = 0;
+const img = document.getElementById("slideshow-img");
+
+function showImage(index){
+  img.classList.remove('show');
+  setTimeout(() => {
+    img.src = images[index].url;
+    img.classList.add('show');
+  }, 300);
+}
+
+document.getElementById('prev').addEventListener('click', () => {
+  current = (current - 1 + images.length) % images.length;
+  showImage(current);
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  current = (current + 1) % images.length;
+  showImage(current);
+});
+
+// Auto-slideshow
+setInterval(() => {
+  current = (current + 1) % images.length;
+  showImage(current);
+}, 5000); // Cambia cada 5 segundos
+
+// Inicializar
+showImage(current);
+</script>
+
+<script>
+  const inputArchivo = document.getElementById('archivo');
+  const preview = document.getElementById('preview');
+  let archivos = [];
+
+  inputArchivo.addEventListener('change', () => {
+    const nuevosArchivos = Array.from(inputArchivo.files);
+    archivos = archivos.concat(nuevosArchivos);
+    mostrarPreviews();
+    inputArchivo.value = '';
+  });
+
+  function mostrarPreviews() {
+    preview.innerHTML = '';
+    archivos.forEach((file, index) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const contenedor = document.createElement('div');
+        contenedor.className = 'thumbnail-container';
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.className = 'thumbnail';
+
+        const btnEliminar = document.createElement('button');
+        btnEliminar.type = 'button';
+        btnEliminar.textContent = '×';
+        btnEliminar.className = 'remove-btn';
+        btnEliminar.addEventListener('click', () => {
+          archivos.splice(index, 1);
+          mostrarPreviews();
+        });
+
+        contenedor.appendChild(img);
+        contenedor.appendChild(btnEliminar);
+        preview.appendChild(contenedor);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Preparar archivos antes de enviar
+  const form = document.getElementById('formAyuda');
+  form.addEventListener('submit', (e) => {
+    const dataTransfer = new DataTransfer();
+    archivos.forEach(file => dataTransfer.items.add(file));
+    inputArchivo.files = dataTransfer.files;
+  });
+</script>
+<script>
+  // Limpiar formulario cuando se vuelve a la página
+  window.addEventListener("pageshow", function(event) {
+    const form = document.getElementById("formAyuda");
+    if (form) {
+      form.reset(); // Reinicia todos los campos
+      const preview = document.getElementById("preview");
+      if (preview) preview.innerHTML = ""; // Limpia la previsualización de archivos
+    }
+  });
+  
+  <!-- tu formulario aquí -->
+</script>
+<script>
+const bubble = document.getElementById('chatBubble');
+const chatWindow = document.getElementById('chatWindow');
+const closeBtn = document.getElementById('closeChat');
+const sendBtn = document.getElementById('sendMessage');
+const userInput = document.getElementById('userMessage');
+const chatBody = document.getElementById('chatBody');
+
+// Abrir ventana al hacer clic en la burbuja
+bubble.addEventListener('click', () => {
+  chatWindow.style.display = 'flex';
+  chatBody.scrollTop = chatBody.scrollHeight;
+});
+
+// Cerrar ventana
+closeBtn.addEventListener('click', () => {
+  chatWindow.style.display = 'none';
+});
+
+// Enviar mensaje
+sendBtn.addEventListener('click', () => {
+  const text = userInput.value.trim();
+  if (!text) return;
+
+  // Agregar mensaje del usuario
+  const msg = document.createElement('div');
+  msg.classList.add('message', 'user');
+  msg.textContent = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  // Limpiar input
+  userInput.value = '';
+
+  // Abrir WhatsApp con mensaje
+  const waUrl = `https://wa.me/50587001920?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
+});
+
+// Enviar con Enter
+userInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    sendBtn.click();
+  }
+});
+</script>
+</body>
+</html>
