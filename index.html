@@ -30,22 +30,166 @@
   .link-card:hover { transform: scale(1.1); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
   .link-icon { display:flex; align-items:center; justify-content:center; padding:1rem; border-radius:50%; margin-bottom:0.5rem; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease; }
   .link-card:hover .link-icon { background-color:white; transform: scale(1.3); color:#000; }
+  
+/* ======= Gradientes ======= */
+.bg-portal { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+.bg-classroom { background: linear-gradient(90deg, #0f766e, #14b8a6); }
+.bg-calendar { background: linear-gradient(90deg, #b45309, #f59e0b); }
+.bg-drive { background: linear-gradient(90deg, #15803d, #22c55e); }
+.bg-comunicados { background: linear-gradient(90deg, #6b21a8, #a855f7); }
+.bg-whatsapp { background: linear-gradient(90deg, #047857, #10b981); }
+.bg-facebook { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+.bg-instagram { background: linear-gradient(90deg, #f97316, #f43f5e); }
+.bg-youtube { background: linear-gradient(90deg, #dc2626, #f87171); }
+.bg-kindergarten { background: linear-gradient(90deg, #f59e0b, #facc15); }
+.bg-colegio { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.bg-citas { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+.bg-directorio { background: linear-gradient(90deg, #065f46, #10b981); }
+.bg-consultas { background: linear-gradient(90deg, #92400e, #f59e0b); }
+.bg-horarios { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+.bg-contactos { background: linear-gradient(90deg, #065f46, #10b981); }
+.bg-materiales { background: linear-gradient(90deg, #92400e, #f59e0b); }
+.bg-calificaciones { background: linear-gradient(90deg, #7f1d1d, #ef4444); }
+.bg-documentos { background: linear-gradient(90deg, #581c87, #a855f7); }
 
-  /* Colores distintos */
-  .bg-portal { background: linear-gradient(90deg, #1e40af, #3b82f6); }
-  .bg-classroom { background: linear-gradient(90deg, #0f766e, #14b8a6); }
-  .bg-calendar { background: linear-gradient(90deg, #b45309, #f59e0b); }
-  .bg-drive { background: linear-gradient(90deg, #15803d, #22c55e); }
-  .bg-comunicados { background: linear-gradient(90deg, #6b21a8, #a855f7); }
-  .bg-whatsapp { background: linear-gradient(90deg, #047857, #10b981); }
-  .bg-facebook { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
-  .bg-instagram { background: linear-gradient(90deg, #f97316, #f43f5e); }
-  .bg-youtube { background: linear-gradient(90deg, #dc2626, #f87171); }
-  .bg-kindergarten { background: linear-gradient(90deg, #f59e0b, #facc15); }
-  .bg-colegio { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
-  .bg-citas { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
-  .bg-directorio { background: linear-gradient(90deg, #065f46, #10b981); }
-  .bg-consultas { background: linear-gradient(90deg, #92400e, #f59e0b); }
+.bg-horarios { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+.bg-contactos { background: linear-gradient(90deg, #065f46, #10b981); }
+.bg-materiales { background: linear-gradient(90deg, #92400e, #f59e0b); }
+.bg-calificaciones { background: linear-gradient(90deg, #7f1d1d, #ef4444); }
+.bg-documentos { background: linear-gradient(90deg, #581c87, #a855f7); }
+
+.bg-administracion { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+.bg-direccion { background: linear-gradient(90deg, #0f766e, #14b8a6); }
+.bg-kindergarten { background: linear-gradient(90deg, #f59e0b, #facc15); }
+.bg-primaria { background: linear-gradient(90deg, #b45309, #f59e0b); }
+.bg-secundaria { background: linear-gradient(90deg, #7f1d1d, #ef4444); }
+.bg-marketing { background: linear-gradient(90deg, #6b21a8, #a855f7); }
+.bg-secretaria { background: linear-gradient(90deg, #065f46, #10b981); }
+.bg-club { background: linear-gradient(90deg, #dc2626, #f87171); }
+.bg-informatica { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+
+/* Asegúrate que ambos lados tengan el mismo color */
+.flip-card-front, .flip-card-back {
+  border-radius: 0.5rem;
+  color: white;
+}
+
+
+
+/* ======= Hover y Active ======= */
+.bg-portal,
+.bg-classroom,
+.bg-calendar,
+.bg-drive,
+.bg-comunicados,
+.bg-whatsapp,
+.bg-facebook,
+.bg-instagram,
+.bg-youtube,
+.bg-kindergarten,
+.bg-colegio,
+.bg-citas,
+.bg-directorio,
+.bg-consultas,
+.bg-horarios,
+.bg-contactos,
+.bg-materiales,
+.bg-calificaciones,
+.bg-documentos {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.bg-portal:hover,
+.bg-classroom:hover,
+.bg-calendar:hover,
+.bg-drive:hover,
+.bg-comunicados:hover,
+.bg-whatsapp:hover,
+.bg-facebook:hover,
+.bg-instagram:hover,
+.bg-youtube:hover,
+.bg-kindergarten:hover,
+.bg-colegio:hover,
+.bg-citas:hover,
+.bg-directorio:hover,
+.bg-consultas:hover,
+.bg-horarios:hover,
+.bg-contactos:hover,
+.bg-materiales:hover,
+.bg-calificaciones:hover,
+.bg-documentos:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ======= Efecto al hacer clic ======= */
+.bg-portal:active,
+.bg-classroom:active,
+.bg-calendar:active,
+.bg-drive:active,
+.bg-comunicados:active,
+.bg-whatsapp:active,
+.bg-facebook:active,
+.bg-instagram:active,
+.bg-youtube:active,
+.bg-kindergarten:active,
+.bg-colegio:active,
+.bg-citas:active,
+.bg-directorio:active,
+.bg-consultas:active,
+.bg-horarios:active,
+.bg-contactos:active,
+.bg-materiales:active,
+.bg-calificaciones:active,
+.bg-documentos:active {
+  transform: scale(0.97);
+  filter: brightness(1.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+}
+/* ======= Animación rebote y giro de iconos ======= */
+.icon-rotate-hover {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.icon-rotate-hover:hover {
+  animation: bounceRotate 0.6s ease forwards;
+}
+
+@keyframes bounceRotate {
+  0%   { transform: rotate(0deg) translateY(0); }
+  25%  { transform: rotate(10deg) translateY(-5px); }
+  50%  { transform: rotate(-10deg) translateY(-10px); }
+  75%  { transform: rotate(5deg) translateY(-5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+/* ======= Animación de aparición secuencial ======= */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplicar animación a cada grupo */
+.group-appear {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+/* Retrasos secuenciales para cada grupo */
+.group-appear:nth-child(1) { animation-delay: 0.2s; }
+.group-appear:nth-child(2) { animation-delay: 0.4s; }
+.group-appear:nth-child(3) { animation-delay: 0.6s; }
+.group-appear:nth-child(4) { animation-delay: 0.8s; }
+.group-appear:nth-child(5) { animation-delay: 1s; }
+
 
   /* Mapas */
   .map-container { border-radius:1rem; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom:1.5rem; }
@@ -77,19 +221,7 @@
   justify-content: center;
   padding: 1rem;
 }
-.flip-card-front {
-  background: linear-gradient(90deg, #7c3aed, #a855f7);
-  color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-.flip-card-back {
-  background: linear-gradient(90deg, #6b21a8, #a855f7);
-  transform: rotateY(180deg);
-  color: white;
-  font-size: 1rem;
-  text-align: center;
-}
+
 .flip-card-back a {
   color: #fff;
   font-weight: bold;
@@ -364,6 +496,269 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+.follow-us h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f59e0b, #f43f5e, #3b82f6, #10b981);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite, pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.gif-float {
+  width: 140px;       /* tamaño ideal para destacar sin pixelar */
+  height: 140px;
+  object-fit: contain;
+  animation: float 2s ease-in-out infinite;
+}
+
+
+/* ======= Flip Card Base ======= */
+.flip-card {
+  background: transparent;
+  perspective: 1000px; /* profundidad 3D */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* ⚠️ evita color lila */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 1rem;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  /* hereda el background de la parte frontal */
+  background: inherit;
+  cursor: pointer;
+}
+
+/* ======= Flip Card Back con gradiente diferenciado ======= */
+.flip-card-back.bg-administracion {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb); /* más oscuro */
+}
+
+.flip-card-back.bg-direccion {
+  background: linear-gradient(135deg, #5b21b6, #7e22ce);
+}
+
+.flip-card-back.bg-kindergarten {
+  background: linear-gradient(135deg, #d97706, #fbbf24);
+  color: black;
+}
+
+.flip-card-back.bg-primaria {
+  background: linear-gradient(135deg, #047857, #059669);
+}
+
+.flip-card-back.bg-secundaria {
+  background: linear-gradient(135deg, #be185d, #ec4899);
+}
+
+.flip-card-back.bg-marketing {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+}
+
+.flip-card-back.bg-secretaria {
+  background: linear-gradient(135deg, #475569, #64748b);
+}
+
+.flip-card-back.bg-club {
+  background: linear-gradient(135deg, #065f46, #047857);
+}
+
+.flip-card-back.bg-informatica {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+
+
+/* ======= Iconos flotantes opcionales ======= */
+.icon-float {
+  display: inline-block;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ======= Zoom en hover ======= */
+.hover-zoom:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+
+/* ======= Colores coherentes para cada área ======= */
+.flip-card-inner.bg-administracion,
+.flip-card-front.bg-administracion,
+.flip-card-back.bg-administracion {
+  background-color: #2563eb; /* azul administración */
+  color: white;
+}
+
+.flip-card-inner.bg-direccion,
+.flip-card-front.bg-direccion,
+.flip-card-back.bg-direccion {
+  background-color: #7e22ce; /* morado dirección */
+  color: white;
+}
+
+.flip-card-inner.bg-kindergarten,
+.flip-card-front.bg-kindergarten,
+.flip-card-back.bg-kindergarten {
+  background-color: #fbbf24; /* amarillo kinder */
+  color: black;
+}
+
+.flip-card-inner.bg-primaria,
+.flip-card-front.bg-primaria,
+.flip-card-back.bg-primaria {
+  background-color: #059669; /* verde primaria */
+  color: white;
+}
+
+.flip-card-inner.bg-secundaria,
+.flip-card-front.bg-secundaria,
+.flip-card-back.bg-secundaria {
+  background-color: #ec4899; /* rosa secundaria */
+  color: white;
+}
+
+.flip-card-inner.bg-marketing,
+.flip-card-front.bg-marketing,
+.flip-card-back.bg-marketing {
+  background-color: #f97316; /* naranja marketing */
+  color: white;
+}
+
+.flip-card-inner.bg-secretaria,
+.flip-card-front.bg-secretaria,
+.flip-card-back.bg-secretaria {
+  background-color: #64748b; /* gris secretaria */
+  color: white;
+}
+
+.flip-card-inner.bg-club,
+.flip-card-front.bg-club,
+.flip-card-back.bg-club {
+  background-color: #047857; /* verde club */
+  color: white;
+}
+
+.flip-card-inner.bg-informatica,
+.flip-card-front.bg-informatica,
+.flip-card-back.bg-informatica {
+  background-color: #0ea5e9; /* azul informática */
+  color: white;
+}
+
+
+<!-- CSS Flip Cards -->
+
+.flip-card {
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 12rem; /* altura fija, ajustar según necesidad */
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+
+.flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 200px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
 
 
 </style>
@@ -435,283 +830,264 @@
 
 <section id="enlaces" class="container mx-auto py-16 slide-left">
   <h2 class="text-2xl font-bold text-center mb-8">Enlaces de Interés</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center" id="cards-container">
-    <a href="https://portales.dsm.edu.ni/" target="_blank" class="link-card bg-portal">
-  <span class="icon-float link-icon icon-rotate-hover">📘</span> Portal de Notas</a>
 
-    <a href="https://classroom.google.com/" target="_blank" class="link-card bg-classroom"><span class="icon-float link-icon icon-rotate-hover">🎓</span> Aula Virtual</a>
-    <a href="https://calendar.google.com/calendar/u/0/embed?src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com" target="_blank" class="link-card bg-calendar"><span class="icon-float link-icon icon-rotate-hover">📅</span> Calendario Académico</a>
-    <a href="https://drive.google.com/drive/u/0/folders/1asMTqUFoUJGhnChEPOxPjB4ufLsFZ8yD" target="_blank" class="link-card bg-drive"><span class="icon-float link-icon icon-rotate-hover">📖</span> Reglamentos</a>
-    <a href="#" class="link-card bg-comunicados"><span class="icon-float link-icon icon-rotate-hover">📢</span> Comunicados</a>
-    <a href="https://api.whatsapp.com/send?phone=%2B50587001916" target="_blank" class="link-card bg-whatsapp">
-  <span class="icon-float link-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp" class="w-16 h-16">
-  </span>
-  WhatsApp Admisiones
-</a>
-    <a href="https://sites.google.com/coalnic.edu.ni/padreskindergarten/p%C3%A1gina-principal" target="_blank" class="link-card bg-kindergarten"><span class="icon-float link-icon icon-rotate-hover">🏫</span> Intranet Padres Kindergarten</a>
-    <a href="https://sites.google.com/coalnic.edu.ni/padres-colegio/p%C3%A1gina-principal" target="_blank" class="link-card bg-colegio"><span class="icon-float link-icon icon-rotate-hover">🏫</span> Intranet Padres Colegio</a>
-    <a href="https://coalnic.trafft.com/" target="_blank" class="link-card bg-citas"><span class="icon-float link-icon icon-rotate-hover">📅</span> Portal de Citas</a>
-    <a href="https://drive.google.com/file/d/1-OlOGF76-dRCogWrlMjQUthQrsU92nbZ/view?usp=drive_link" target="_blank" class="link-card bg-directorio"><span class="icon-float link-icon icon-rotate-hover">👩‍🏫</span> Directorio Profesores</a>
-    <a href="https://sites.google.com/d/1cvty-_JVgsi8mhDAX1Ro2-sEmD5_nhRM/p/1_OoaJMl4p2anTA5jC5Dkzp0KcPIIu7SQ/edit" target="_blank" class="link-card bg-consultas"><span class="icon-float link-icon icon-rotate-hover">📖</span> Tarde de Consultas</a>
-  </div>
-</section>
-
-<!-- ENLACES ÚTILES -->
-<section id="enlaces" class="container mx-auto py-16 slide-left">
-  <h2 class="text-2xl font-bold text-center mb-8">Enlaces Útiles</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-
-    <!-- Horarios -->
-    <a href="https://drive.google.com/drive/folders/157Sz0jgLOpYKwFEEpLXxfV1nni9KiOEX" 
-       target="_blank" class="link-card bg-blue-500 hover-zoom text-white">
-      <span class="icon-float link-icon">🕒</span>
+  <!-- Grupo 1: Horarios -->
+  <h3 class="text-xl font-semibold mb-4">Horarios</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center mb-8 group-appear">
+    <a href="https://drive.google.com/drive/folders/157Sz0jgLOpYKwFEEpLXxfV1nni9KiOEX" target="_blank" class="link-card bg-horarios">
+      <span class="icon-float link-icon icon-rotate-hover">🕒</span>
       Consulta los horarios de clase por grado
     </a>
 
-    <a href="https://docs.google.com/spreadsheets/d/1I87P4BxhfxUseLxp7H2cWatirdS8vNiZ/edit?gid=116674992#gid=116674992" 
-       target="_blank" class="link-card bg-blue-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📋</span>
+    <a href="https://docs.google.com/spreadsheets/d/1I87P4BxhfxUseLxp7H2cWatirdS8vNiZ/edit?gid=116674992#gid=116674992" target="_blank" class="link-card bg-horarios">
+      <span class="icon-float link-icon icon-rotate-hover">📋</span>
       Consulta los horarios de atención a familias de cada profesor
     </a>
 
-    <a href="https://coalnic.trafft.com/" 
-       target="_blank" class="link-card bg-blue-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📅</span>
+    <a href="https://coalnic.trafft.com/" target="_blank" class="link-card bg-horarios">
+      <span class="icon-float link-icon icon-rotate-hover">📅</span>
       Solicita reuniones con docentes
     </a>
+  </div>
 
-    <!-- Contactos -->
-    <a href="https://drive.google.com/drive/folders/11b4luv9WYx042SS7jVNivRq_UfH47ZoU" 
-       target="_blank" class="link-card bg-green-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📇</span>
-      Datos de contacto del profesorado
+  <!-- Grupo 2: Contactos -->
+  <h3 class="text-xl font-semibold mb-4">Contactos</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center mb-8 group-appear">
+    <a href="https://drive.google.com/drive/folders/11b4luv9WYx042SS7jVNivRq_UfH47ZoU" target="_blank" class="link-card bg-contactos">
+      <span class="icon-float link-icon icon-rotate-hover">📇</span>
+      Encuentra los datos de contacto del profesorado
     </a>
 
-    <a href="https://drive.google.com/drive/folders/1n02x8WtYZ4iGEoXtLdObmEIwNFXH9f-F?usp=drive_link" 
-       target="_blank" class="link-card bg-green-500 hover-zoom text-white">
-      <span class="icon-float link-icon">👩‍🏫</span>
+    <a href="https://drive.google.com/drive/folders/1n02x8WtYZ4iGEoXtLdObmEIwNFXH9f-F?usp=drive_link" target="_blank" class="link-card bg-contactos">
+      <span class="icon-float link-icon icon-rotate-hover">👩‍🏫</span>
       Conoce el equipo educativo de cada grado
     </a>
+  </div>
 
-    <!-- Libros y materiales -->
-    <a href="https://drive.google.com/drive/folders/1F19vFfMhF_82rvqqOM6CX4MmqEfh0Npr?usp=drive_link" 
-       target="_blank" class="link-card bg-yellow-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📖</span>
+  <!-- Grupo 3: Libros y materiales -->
+  <h3 class="text-xl font-semibold mb-4">Libros y materiales</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center mb-8 group-appear">
+    <a href="https://drive.google.com/drive/folders/1F19vFfMhF_82rvqqOM6CX4MmqEfh0Npr?usp=drive_link" target="_blank" class="link-card bg-materiales">
+      <span class="icon-float link-icon icon-rotate-hover">📖</span>
       Lista de libros y materiales de asignatura
     </a>
 
-    <a href="https://drive.google.com/drive/folders/1eRQ1OEw9b-dWAKxdZyMoxFSRKzoakX7M" 
-       target="_blank" class="link-card bg-yellow-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📝</span>
+    <a href="https://drive.google.com/drive/folders/1eRQ1OEw9b-dWAKxdZyMoxFSRKzoakX7M" target="_blank" class="link-card bg-materiales">
+      <span class="icon-float link-icon icon-rotate-hover">📝</span>
       Programas detallados por grado (Sílabos)
     </a>
+  </div>
 
-    <!-- Calificaciones -->
-    <a href="https://portales.dsm.edu.ni/padres.aspx" 
-       target="_blank" class="link-card bg-red-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📊</span>
-      Revisión de calificaciones y evolución académica
+  <!-- Grupo 4: Calificaciones -->
+  <h3 class="text-xl font-semibold mb-4">Portales y Calificaciones</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center mb-8 group-appear">
+    <a href="https://portales.dsm.edu.ni/padres.aspx" target="_blank" class="link-card bg-calificaciones">
+      <span class="icon-float link-icon icon-rotate-hover">📊</span>
+      Portal de Notas
+	  <a href="https://classroom.google.com/" target="_blank" class="link-card bg-classroom">
+    <span class="icon-float link-icon icon-rotate-hover">🎓</span>
+    Aula Virtual
+  </a>
+    </a>
+  </div>
+
+  <!-- Grupo 5: Documentación -->
+  <h3 class="text-xl font-semibold mb-4">Documentación</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center group-appear">
+    <a href="https://drive.google.com/drive/folders/1pnzI-MDvrTTLV_9Me5oZbUAL6YwxGH_I" target="_blank" class="link-card bg-documentos">
+      <span class="icon-float link-icon icon-rotate-hover">📜</span>
+      Conoce los reglamentos del Colegio
     </a>
 
-    <!-- Documentación -->
-    <a href="https://drive.google.com/drive/folders/1pnzI-MDvrTTLV_9Me5oZbUAL6YwxGH_I" 
-       target="_blank" class="link-card bg-purple-500 hover-zoom text-white">
-      <span class="icon-float link-icon">📜</span>
-      Reglamentos del Colegio
-    </a>
-
-    <a href="https://drive.google.com/drive/folders/1Jw1gwIj_iPkxZYHi2hZdWvfUA6ypCIxW?usp=drive_link" 
-       target="_blank" class="link-card bg-purple-500 hover-zoom text-white">
-      <span class="icon-float link-icon">💡</span>
+    <a href="https://drive.google.com/drive/folders/1Jw1gwIj_iPkxZYHi2hZdWvfUA6ypCIxW?usp=drive_link" target="_blank" class="link-card bg-documentos">
+      <span class="icon-float link-icon icon-rotate-hover">💡</span>
       Conceptos académicos
     </a>
-
   </div>
 </section>
 
 
+<!-- Calendario Escolar -->
+<section id="calendario" class="container mx-auto py-16">
+  <h2 class="text-2xl font-bold text-center mb-8">Calendario Escolar</h2>
 
+  <div class="max-w-[1100px] mx-auto rounded-lg overflow-hidden border border-gray-200">
+    <div class="bg-gray-50 px-4 py-2 flex justify-between items-center border-b border-gray-200">
+      <strong>Calendario (responsivo)</strong>
+      <a href="https://calendar.google.com/calendar/u/0/embed?color=%23fbe983&src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com"
+         target="_blank"
+         class="text-blue-600 text-sm hover:underline">
+        Abrir en otra pestaña
+      </a>
+    </div>
+    <div class="relative w-full" style="padding-top:66.6667%;">
+      <iframe
+        src="https://calendar.google.com/calendar/u/0/embed?color=%23fbe983&src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com&ctz=America/Managua"
+        class="absolute top-0 left-0 w-full h-full border-0"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+  </div>
 </section>
-  <h2 class="text-2xl font-bold text-center mb-8">Calendario Escolar</h2>¿
-  <!-- Cuadro responsivo para Google Calendar -->
-<div style="max-width:1100px; margin:12px auto; font-family:Arial, Helvetica, sans-serif;">
-  <div style="padding:8px 12px; background:#fafafa; border:1px solid #e6e6e6; border-top-left-radius:8px; border-top-right-radius:8px;">
-    <strong>Calendario (responsivo)</strong>
-    <a href="https://calendar.google.com/calendar/u/0/embed?color=%23fbe983&src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com"
-       target="_blank" rel="noopener" style="float:right; font-size:13px; color:#0073e6; text-decoration:none;">Abrir en otra pestaña</a>
-  </div>
-
-  <div style="position:relative; width:100%; padding-top:66.666%; /* aspecto 3:2 */ border-left:1px solid #e6e6e6; border-right:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; border-bottom-left-radius:8px; border-bottom-right-radius:8px; overflow:hidden;">
-    <iframe
-      src="https://calendar.google.com/calendar/u/0/embed?color=%23fbe983&src=coalnic.edu.ni_bjio5fdan2prhqqbegakgp889k@group.calendar.google.com"
-      style="position:absolute; left:0; top:0; width:100%; height:100%; border:0;"
-      frameborder="0"
-      scrolling="no"
-      title="Calendario Coalnic"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
 
 
 
 <!-- AYUDA O INFORMACIÓN -->
-<section id="ayuda" class="container mx-auto py-16 slide-left">
+<section id="ayuda" class="container mx-auto py-16">
   <h2 class="text-2xl font-bold text-center mb-4">Ayuda</h2>
-  
-  <p class="text-center text-gray-700 text-xl font-semibold mb-8">
+
+  <p class="text-center text-gray-700 text-xl font-semibold mb-4">
     En el Colegio Alemán, queremos asegurarnos de que siempre cuente con el apoyo que necesita.<br>
     Por favor, póngase en contacto directamente con el departamento correspondiente:
   </p>
 
-  <div class="relative perspective grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <p class="text-center text-indigo-600 font-bold text-lg mb-8 animate-bounce">
+    ¡Elige el área que necesitas y contáctanos fácilmente!
+  </p>
 
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    
     <!-- Administración -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">🏢</span>
-          <span class="font-bold text-lg">Administración</span>
-          <span class="text-sm mt-1">Director Administrativo</span>
+        <div class="flip-card-front" style="background:#1e40af; color:white;">
+          <span style="font-size:2rem;">🏢</span>
+          <span style="font-weight:bold;">Administración</span>
+          <span>Director Administrativo</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#1e3a8a; color:white;"
              onclick="window.location.href='mailto:administracion@dsm.edu.ni?subject=Consulta%20Administrativa'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">administracion@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">administracion@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Dirección General -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">🏫</span>
-          <span class="font-bold text-lg">Director</span>
-          <span class="text-sm mt-1">Director General</span>
+        <div class="flip-card-front" style="background:#4c1d95; color:white;">
+          <span style="font-size:2rem;">🏫</span>
+          <span style="font-weight:bold;">Director</span>
+          <span>Director General</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#3b0d8a; color:white;"
              onclick="window.location.href='mailto:direccion.general@dsm.edu.ni?subject=Consulta%20General'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">direccion.general@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">direccion.general@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Kindergarten -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">🧒</span>
-          <span class="font-bold text-lg">Kindergarten</span>
-          <span class="text-sm mt-1">Directora Kindergarten</span>
+        <div class="flip-card-front" style="background:#ec4899; color:white;">
+          <span style="font-size:2rem;">🧒</span>
+          <span style="font-weight:bold;">Kindergarten</span>
+          <span>Directora Kindergarten</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#be185d; color:white;"
              onclick="window.location.href='mailto:direccion.kindergarten@dsm.edu.ni?subject=Consulta%20Kindergarten'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">direccion.kindergarten@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">direccion.kindergarten@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Primaria -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">📚</span>
-          <span class="font-bold text-lg">Primaria</span>
-          <span class="text-sm mt-1">Directora Primaria</span>
+        <div class="flip-card-front" style="background:#f59e0b; color:white;">
+          <span style="font-size:2rem;">📚</span>
+          <span style="font-weight:bold;">Primaria</span>
+          <span>Directora Primaria</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#b45309; color:white;"
              onclick="window.location.href='mailto:direccion.primaria@dsm.edu.ni?subject=Consulta%20Primaria'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">direccion.primaria@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">direccion.primaria@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Secundaria -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">🎓</span>
-          <span class="font-bold text-lg">Secundaria</span>
-          <span class="text-sm mt-1">Subdirección Nacional</span>
+        <div class="flip-card-front" style="background:#10b981; color:white;">
+          <span style="font-size:2rem;">🎓</span>
+          <span style="font-weight:bold;">Secundaria</span>
+          <span>Subdirección Nacional</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#047857; color:white;"
              onclick="window.location.href='mailto:subdireccion.nacional@dsm.edu.ni?subject=Consulta%20Secundaria'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">subdireccion.nacional@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">subdireccion.nacional@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Marketing -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">📣</span>
-          <span class="font-bold text-lg">Marketing</span>
-          <span class="text-sm mt-1">Responsable de Mercadeo</span>
+        <div class="flip-card-front" style="background:#ef4444; color:white;">
+          <span style="font-size:2rem;">📣</span>
+          <span style="font-weight:bold;">Marketing</span>
+          <span>Responsable de Mercadeo</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#b91c1c; color:white;"
              onclick="window.location.href='mailto:difusiondsm@dsm.edu.ni?subject=Consulta%20Marketing'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">difusiondsm@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">difusiondsm@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
-    <!-- Secretaría Académica / Certificado de Notas -->
-    <div class="relative perspective">
-      <div class="flip-card link-card hover-zoom bg-comunicados">
-        <div class="flip-card-inner">
-          <!-- Lado frontal -->
-          <div class="flip-card-front flex flex-col items-center justify-center">
-            <span class="icon-float link-icon text-4xl">📄</span>
-            <span class="font-bold text-lg">Secretaría Académica</span>
-            <span class="text-sm mt-1">Certificado de Notas</span>
-          </div>
-          <!-- Lado trasero -->
-          <div class="flip-card-back flex flex-col items-center justify-center"
-               onclick="window.location.href='mailto:secretaria.academica@dsm.edu.ni?subject=Solicitud%20de%20Certificado%20de%20Notas&body=Estimado%20equipo,%0A%0AQuisiera%20solicitar%20el%20certificado%20de%20notas.%0A%0AGracias.'">
-            <p>Por favor, envíe la solicitud de certificado de notas al siguiente correo:</p>
-            <span class="underline cursor-pointer text-white font-bold">secretaria.academica@dsm.edu.ni</span>
-          </div>
+    <!-- Secretaría Académica -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front" style="background:#6366f1; color:white;">
+          <span style="font-size:2rem;">📄</span>
+          <span style="font-weight:bold;">Secretaría Académica</span>
+          <span>Certificado de Notas</span>
+        </div>
+        <div class="flip-card-back" style="background:#4338ca; color:white;"
+             onclick="window.location.href='mailto:secretaria.academica@dsm.edu.ni?subject=Solicitud%20de%20Certificado%20de%20Notas'">
+          <p>Por favor, envíe la solicitud de certificado de notas al siguiente correo:</p>
+          <span style="text-decoration:underline; cursor:pointer;">secretaria.academica@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Club Deportivo -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">⚽</span>
-          <span class="font-bold text-lg">Club Deportivo</span>
-          <span class="text-sm mt-1">Deportes</span>
+        <div class="flip-card-front" style="background:#f97316; color:white;">
+          <span style="font-size:2rem;">⚽</span>
+          <span style="font-weight:bold;">Club Deportivo</span>
+          <span>Deportes</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#c2410c; color:white;"
              onclick="window.location.href='mailto:dsc@dsm.edu.ni?subject=Consulta%20Club%20Deportivo'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">dsc@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">dsc@dsm.edu.ni</span>
         </div>
       </div>
     </div>
 
     <!-- Informática -->
-    <div class="flip-card link-card hover-zoom bg-comunicados">
+    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front flex flex-col items-center justify-center">
-          <span class="icon-float link-icon text-4xl">🖥️</span>
-          <span class="font-bold text-lg">Informática</span>
-          <span class="text-sm mt-1">Asistencia Técnica</span>
+        <div class="flip-card-front" style="background:#14b8a6; color:white;">
+          <span style="font-size:2rem;">🖥️</span>
+          <span style="font-weight:bold;">Informática</span>
+          <span>Asistencia Técnica</span>
         </div>
-        <div class="flip-card-back flex flex-col items-center justify-center"
+        <div class="flip-card-back" style="background:#0f766e; color:white;"
              onclick="window.location.href='mailto:helpdesk@dsm.edu.ni?subject=Soporte%20Técnico'">
           <p>Escríbenos a:</p>
-          <span class="underline cursor-pointer text-white font-bold">helpdesk@dsm.edu.ni</span>
+          <span style="text-decoration:underline; cursor:pointer;">helpdesk@dsm.edu.ni</span>
         </div>
       </div>
     </div>
@@ -719,40 +1095,39 @@
   </div>
 </section>
 
-
-
 <!-- NUESTRAS REDES SOCIALES -->
 <section id="redes" class="container mx-auto py-16 slide-left">
-  <h2 class="text-2xl font-bold text-center mb-8">Nuestras Redes Sociales</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
-<!-- Facebook -->
-<a href="https://www.facebook.com/dsmanagua" target="_blank" class="link-card bg-facebook hover-zoom">
-  <span class="icon-float link-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/2504/2504903.png" alt="Facebook" class="w-16 h-16">
-  </span>
-  Facebook
-</a>
+  <!-- NUESTRA LLAMADA A LA ACCIÓN -->
+  <div class="text-center my-8 follow-us">
+    <h3>Nuestras Redes Sociales</h3>
+    <h3>Síguenos y mantente conectado</h3>
+    
+    <!-- GIFs animados vinculados a redes sociales -->
+    <div class="mt-6 flex justify-center gap-8">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjl1a3Z4aTNidnVlanBieXp2OW9udTNncTZhdHhtemlubmpmYzFqMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9FbLcp4NnluxdR6EyZ/giphy.gif" 
+             alt="Facebook Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
 
-<!-- Instagram -->
-<a href="https://www.instagram.com/dsmanagua" target="_blank" class="link-card bg-instagram hover-zoom">
-  <span class="icon-float link-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/1409/1409946.png" alt="Instagram" class="w-16 h-16">
-  </span>
-  Instagram
-</a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemRnYmdoNWNyNDB1aXRtODVland0MTN2Y3EyZW5uYXozdTJzejExaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uo6rcjwHSAFsQ/giphy.gif" 
+             alt="Instagram Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
 
-<!-- YouTube -->
-<a href="https://youtube.com/@colegioalemannicaraguense9449?feature=shared" target="_blank" class="link-card bg-youtube hover-zoom">
-  <span class="icon-float link-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/3938/3938037.png" alt="YouTube" class="w-16 h-16">
-  </span>
-  YouTube
-</a>
-
-
+      <!-- YouTube -->
+      <a href="https://youtube.com/@colegioalemannicaraguense9449?feature=shared" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWE4ejRtcWdxZm56NnkweGdjMWFmN2lrZmoya3J2eWpqOHd1cXd4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13Nc3xlO1kGg3S/giphy.gif" 
+             alt="YouTube Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
+    </div>
   </div>
 </section>
+
+
+
 
 <!-- Noticias Varias -->
 <!-- GALERIA DE IMAGENES -->
@@ -1063,6 +1438,15 @@ userInput.addEventListener('keypress', (e) => {
     e.preventDefault();
     sendBtn.click();
   }
+});
+</script>
+
+<script>
+// Funciona en móviles y tablets: tocar para girar
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
 });
 </script>
 </body>
