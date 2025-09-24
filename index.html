@@ -728,6 +728,13 @@
       <span class="icon-float link-icon icon-rotate-hover">📅</span>
       Solicita reuniones con docentes
     </a>
+	    </a>
+	   <a href="https://sites.google.com/coalnic.edu.ni/calendariosgrupos/p%C3%A1gina-principal" 
+       target="_blank" 
+       class="link-card bg-horarios">
+      <span class="icon-float link-icon icon-rotate-hover">🗓️</span>
+      Calendarios de Exámenes y Pruebas
+    </a>
   </div>
 
   <!-- Grupo 2: Contactos -->
@@ -784,8 +791,13 @@
       <span class="icon-float link-icon icon-rotate-hover">💡</span>
       Conceptos académicos
     </a>
+	 <a href="https://docs.google.com/spreadsheets/d/1YhJSCZqBU6AgDccB_3wxG9Gu0QdwmLvwuElIMMf_wE8/edit?gid=1873507932#gid=1873507932" target="_blank" class="link-card bg-documentos">
+      <span class="icon-float link-icon icon-rotate-hover">📊</span>
+      Información de Núcleos
+    </a>
   </div>
 </section>
+
 
 
 <!-- Calendario Escolar -->
@@ -1119,64 +1131,46 @@
 
 
 
-
-
 <!-- FORMULARIO DE AYUDA -->
-<section id="soporte" class="py-12 bg-gray-100">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-center mb-6">Formulario de Ayuda</h2>
-    <form id="formAyuda" class="bg-white p-6 rounded-xl shadow-md space-y-4">
+<section id="soporte" class="container mx-auto py-16">
+  <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <h2 class="text-2xl font-bold text-center mb-8">Formulario de Ayuda</h2>
+    <form id="formAyuda">
 
-      <!-- Nombre -->
-      <div>
-        <label for="nombre" class="block font-medium">Nombre del solicitante:</label>
-        <input type="text" id="nombre" name="nombre" required class="w-full p-2 border rounded-lg">
-      </div>
-      
-      <!-- Correo del solicitante -->
-      <div>
-        <label for="correo" class="block font-medium">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" class="w-full p-2 border rounded-lg">
-      </div>
+      <label for="nombre">Nombre del solicitante:</label>
+      <input type="text" id="nombre" name="nombre" required class="w-full border rounded p-2 mb-4">
 
-      <!-- Selección de destinatario -->
-      <div>
-        <label for="destinatario" class="block font-medium">Selecciona a quién deseas contactar:</label>
-        <select id="destinatario" name="destinatario" required class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-          <option value="" disabled selected>-- Selecciona un contacto --</option>
-          <option value="administracion@dsm.edu.ni">Director Administrativo</option>
-          <option value="direccion.general@dsm.edu.ni">Director General</option>
-          <option value="direccion.primaria@dsm.edu.ni">Directora Primaria</option>
-          <option value="direccion.kindergarten@dsm.edu.ni">Directora Kindergarten</option>
-          <option value="subdireccion.nacional@dsm.edu.ni">Subdirección Nacional</option>
-          <option value="secretaria.academica@dsm.edu.ni">Secretaría Académica</option>
-          <option value="dsc@dsm.edu.ni">Club Deportivo</option>
-          <option value="admisiones@dsm.edu.ni">Admisiones</option>
-          <option value="informatica@dsm.edu.ni">Informática</option>
-          <option value="difusiondsm@dsm.edu.ni">Marketing</option>
-        </select>
-      </div>
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" class="w-full border rounded p-2 mb-4">
 
-      <!-- Mensaje -->
-      <div>
-        <label for="mensaje" class="block font-medium">¿En qué necesitas ayuda?</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required class="w-full p-2 border rounded-lg"></textarea>
-      </div>
+      <label for="destinatario">Selecciona a quién deseas contactar:</label>
+      <select id="destinatario" name="destinatario" required class="w-full border rounded p-2 mb-4">
+        <option value="" disabled selected>-- Selecciona un contacto --</option>
+        <option value="administracion@dsm.edu.ni">Director Administrativo</option>
+        <option value="direccion.general@dsm.edu.ni">Director General</option>
+        <option value="direccion.primaria@dsm.edu.ni">Directora Primaria</option>
+        <option value="direccion.kindergarten@dsm.edu.ni">Directora Kindergarten</option>
+        <option value="subdireccion.nacional@dsm.edu.ni">Subdirección Nacional</option>
+        <option value="secretaria.academica@dsm.edu.ni">Secretaría Académica</option>
+        <option value="dsc@dsm.edu.ni">Club Deportivo</option>
+        <option value="admisiones@dsm.edu.ni">Admisiones</option>
+        <option value="informatica@dsm.edu.ni">Informática</option>
+        <option value="difusiondsm@dsm.edu.ni">Marketing</option>
+      </select>
 
-      <!-- Archivos adjuntos -->
-      <div>
-        <label for="archivo" class="block font-medium">Adjuntar capturas (puedes seleccionar varias):</label>
-        <input type="file" id="archivo" name="archivo" multiple class="w-full">
-        <div id="preview" class="flex flex-wrap mt-4 gap-2"></div>
-      </div>
+      <label for="mensaje">¿En qué necesitas ayuda?</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required class="w-full border rounded p-2 mb-4"></textarea>
 
-      <!-- Botón -->
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
-        Enviar solicitud
-      </button>
+      <label for="archivo">Adjuntar capturas (puedes seleccionar varias):</label>
+      <input type="file" id="archivo" name="archivo" multiple class="w-full border rounded p-2 mb-4">
+      <div id="preview" class="flex flex-wrap gap-2 mb-4"></div>
+
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full">Enviar solicitud</button>
     </form>
   </div>
 </section>
+
+
 
 <script>
 const form = document.getElementById('formAyuda');
@@ -1221,48 +1215,35 @@ function mostrarPreviews() {
   });
 }
 
-// Enviar formulario a Google Apps Script
+// Envío al Google Apps Script
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const formData = new FormData();
-  formData.append('nombre', document.getElementById('nombre').value);
-  formData.append('correo', document.getElementById('correo').value);
-  formData.append('destinatario', document.getElementById('destinatario').value);
-  formData.append('mensaje', document.getElementById('mensaje').value);
-
-  archivos.forEach(file => formData.append('archivo', file));
+  const payload = {
+    nombre: form.nombre.value,
+    correo: form.correo.value,
+    destinatario: form.destinatario.value,
+    mensaje: form.mensaje.value
+  };
 
   try {
-    const response = await fetch('https://script.google.com/a/macros/dsm.edu.ni/s/AKfycbwxvHwgXEvFTjLYNcwUGDBry4B1D5ZJQuLb1tds660ad-7te0TaSaGqFSkCSVWmAqo5/exec', {
-      method: 'POST',
-      body: formData
+    const response = await fetch("https://script.google.com/macros/s/AKfycby1D_XVuoijs34wMtm6c5Ama5qFI_O1Y7kqsEMZ_CTM8KQwyWXyIAzbmK24X4SivcvY/exec", {
+      method: "POST",
+      body: JSON.stringify(payload) // 👈 sin headers
     });
-    const result = await response.text();
-    if(result === 'success'){
-      alert('Solicitud enviada correctamente.');
-      form.reset();
-      preview.innerHTML = '';
-      archivos = [];
+
+ const result = await response.json();
+    if (result.status === "ok") {
+      window.location.href = "gracias.html"; // 👉 redirige si todo salió bien
     } else {
-      alert('Error al enviar: ' + result);
+      alert("❌ Hubo un error: " + result.message);
     }
   } catch (err) {
-    alert('Error de conexión: ' + err.message);
+    alert("⚠️ No se pudo conectar con el servidor");
+    console.error(err);
   }
 });
-
-// Limpiar formulario al volver a la página
-window.addEventListener("pageshow", () => {
-  form.reset();
-  preview.innerHTML = '';
-  archivos = [];
-});
 </script>
-
-
-
-
 
 
 <!-- FOOTER -->
