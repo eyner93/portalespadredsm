@@ -1493,53 +1493,138 @@ document.querySelectorAll('.flip-card').forEach(card => {
   });
 });
 </script>
+	
 <script>
-  const form = document.getElementById("formAyuda");
+(function(){
   const STORAGE_KEY = "formAyudaData";
   const EXPIRATION_MINUTES = 5; // tiempo de vida en minutos
+  const DEBUG = true; // cambia a false en producción
 
-  // Guardar datos del formulario en localStorage cada vez que el usuario escribe
-  form.addEventListener("input", () => {
-    const formData = {
-      nombre: form.nombre.value,
-      correo: form.correo.value,
-      destinatario: form.destinatario.value,
-      mensaje: form.mensaje.value,
-      timestamp: Date.now() // ⏱️ Guardar hora exacta
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("formAyuda");
+    if (!form) {
+      if (DEBUG) console.warn("No se encontró #formAyuda en el DOM.");
+      return;
+    }
 
-  // Restaurar datos si existen en localStorage y no están vencidos
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedData = localStorage.getItem(STORAGE_KEY);
-    if (savedData) {
-      const data = JSON.parse(savedData);
+    const correo = form.querySelector("#correo");
+    const errorCorreo = document.getElementById("errorCorreo");
+    const loadingModal = document.getElementById("loadingModal");
 
-      // Calcular si ya venció
-      const ageMinutes = (Date.now() - data.timestamp) / 1000 / 60;
+    const fields = ["nombre", "correo", "destinatario", "mensaje"];
+    const correoRegex = /^[a-zA-Z0-9._%+-]+@padre\.dsm\.edu\.ni$/;
 
-      if (ageMinutes > EXPIRATION_MINUTES) {
-        // 🗑️ Borrar datos viejos
-        localStorage.removeItem(STORAGE_KEY);
-      } else {
-        // Restaurar solo si son recientes
-        form.nombre.value = data.nombre || "";
-        form.correo.value = data.correo || "";
-        form.destinatario.value = data.destinatario || "";
-        form.mensaje.value = data.mensaje || "";
+    function localStorageAvailable() {
+      try {
+        const test = "__ls_test__";
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch (e) {
+        return false;
       }
     }
-  });
 
-  // 🚀 Cuando se envía correctamente, limpiar localStorage
-  form.addEventListener("submit", () => {
-    localStorage.removeItem(STORAGE_KEY);
+    function validateCorreo(showMessage = true) {
+      if (!correo) return true;
+      const v = correo.value.trim();
+      if (v === "") {
+        if (showMessage) errorCorreo.classList.add("hidden");
+        correo.setCustomValidity("");
+        return true;
+      }
+      if (!correoRegex.test(v)) {
+        if (showMessage) errorCorreo.classList.remove("hidden");
+        correo.setCustomValidity("El correo debe terminar en @padre.dsm.edu.ni");
+        return false;
+      } else {
+        errorCorreo.classList.add("hidden");
+        correo.setCustomValidity("");
+        return true;
+      }
+    }
+
+    // Restaurar datos (si existen y no están vencidos)
+    try {
+      if (localStorageAvailable()) {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const data = JSON.parse(raw);
+          const ageMs = Date.now() - (data.timestamp || 0);
+          if (data.timestamp && ageMs > EXPIRATION_MINUTES * 60 * 1000) {
+            localStorage.removeItem(STORAGE_KEY);
+            if (DEBUG) console.log("Datos vencidos eliminados de localStorage.");
+          } else {
+            fields.forEach(name => {
+              const el = form.elements[name];
+              if (el && data[name] !== undefined) el.value = data[name];
+            });
+            // validar correo restaurado, pero no mostrar mensaje inmediatamente
+            validateCorreo(false);
+            if (DEBUG) console.log("Formulario restaurado desde localStorage:", data);
+          }
+        }
+      } else if (DEBUG) {
+        console.warn("localStorage no disponible en este navegador/perfil.");
+      }
+    } catch (err) {
+      console.error("Error al restaurar localStorage:", err);
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+    }
+
+    // Guardar con debounce
+    let timer;
+    function saveToStorage() {
+      if (!localStorageAvailable()) return;
+      const payload = { timestamp: Date.now() };
+      fields.forEach(name => {
+        const el = form.elements[name];
+        payload[name] = el ? el.value : "";
+      });
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        if (DEBUG) console.log("Guardado en localStorage:", payload);
+      } catch (err) {
+        console.error("No se pudo guardar en localStorage:", err);
+      }
+    }
+
+    form.addEventListener("input", (ev) => {
+      // si el campo es correo, validar en tiempo real
+      if (ev.target === correo) validateCorreo(true);
+      clearTimeout(timer);
+      timer = setTimeout(saveToStorage, 300);
+    });
+
+    // Al enviar: validar, mostrar modal y borrar localStorage (después de permitir envío)
+    form.addEventListener("submit", (ev) => {
+      // valida correo antes de enviar
+      if (!validateCorreo(true)) {
+        ev.preventDefault();
+        correo.focus();
+        return;
+      }
+
+      // muestra modal de carga si existe
+      if (loadingModal) loadingModal.classList.remove("hidden");
+
+      // Borra localStorage con un pequeño delay para no interferir con la navegación/submit.
+      // Si tu envío es AJAX, borra en el callback de éxito en lugar de aquí.
+      if (localStorageAvailable()) {
+        setTimeout(() => {
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+            if (DEBUG) console.log("Formulario enviado — localStorage borrado.");
+          } catch (e) { console.error(e); }
+        }, 1200);
+      }
+    });
   });
+})();
 </script>
-
 </body>
 </html>
+
 
 
 
