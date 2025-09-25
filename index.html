@@ -1147,9 +1147,40 @@
 
     <form id="formAyuda">
 
-      <label for="nombre">Nombre del solicitante:</label>
-      <input type="text" id="nombre" name="nombre" required 
-             class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
+      <label for="correo" class="block font-semibold mb-1">Correo electrónico del solicitante:</label>
+<input 
+  type="email" 
+  id="correo" 
+  name="correo" 
+  required 
+  placeholder="juan.perez@padre.dsm.edu.ni"
+  class="w-full border rounded p-2 mb-2 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
+
+<p id="errorCorreo" class="hidden text-red-600 text-sm flex items-center gap-1">
+  👉 <span>⚠️ Debe ingresar su correo institucional <strong>@padre.dsm.edu.ni</strong></span>
+</p>
+
+<script>
+  document.getElementById("correo").addEventListener("input", function () {
+    const correoInput = this.value.trim();
+    const errorMsg = document.getElementById("errorCorreo");
+
+    // Expresión regular para validar dominio exacto
+    const regex = /^[a-zA-Z0-9._%+-]+@padre\.dsm\.edu\.ni$/;
+
+    if (correoInput === "") {
+      errorMsg.classList.add("hidden");
+      this.setCustomValidity(""); 
+    } else if (!regex.test(correoInput)) {
+      errorMsg.classList.remove("hidden");
+      this.setCustomValidity("El correo debe terminar en @padre.dsm.edu.ni");
+    } else {
+      errorMsg.classList.add("hidden");
+      this.setCustomValidity(""); 
+    }
+  });
+</script>
+
 
       <label for="correo">Correo electrónico del solicitante:</label>
       <input type="email" id="correo" name="correo" required placeholder="juan.perez@padre.dsm.ni" 
@@ -1501,5 +1532,6 @@ form.addEventListener("submit", () => {
 </script>
 </body>
 </html>
+
 
 
