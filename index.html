@@ -1146,8 +1146,12 @@
     <h2 class="text-2xl font-bold text-center mb-8">Formulario de Ayuda</h2>
 
     <form id="formAyuda">
-
-      <label for="correo" class="block font-semibold mb-1">Correo electrónico del solicitante:</label>
+		
+<label for="nombre">Nombre del solicitante:</label>
+      <input type="text" id="nombre" name="nombre" required 
+             class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
+		
+    <label for="correo" class="block font-semibold mb-1">Correo electrónico del solicitante:</label>
 <input 
   type="email" 
   id="correo" 
@@ -1157,7 +1161,7 @@
   class="w-full border rounded p-2 mb-2 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
 
 <p id="errorCorreo" class="hidden text-red-600 text-sm flex items-center gap-1">
-  👉 <span>⚠️ Debe ingresar su correo institucional <strong>@padre.dsm.edu.ni</strong></span>
+  👉 <span>⚠️ Debe ingresar su correo de padre <strong>@padre.dsm.edu.ni</strong></span>
 </p>
 
 <script>
@@ -1180,12 +1184,6 @@
     }
   });
 </script>
-
-
-      <label for="correo">Correo electrónico del solicitante:</label>
-      <input type="email" id="correo" name="correo" required placeholder="juan.perez@padre.dsm.ni" 
-             class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
-
       <label for="destinatario">Selecciona a quién deseas contactar:</label>
       <select id="destinatario" name="destinatario" required 
               class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
@@ -1532,6 +1530,7 @@ form.addEventListener("submit", () => {
 </script>
 </body>
 </html>
+
 
 
 
