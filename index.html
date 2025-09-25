@@ -1494,36 +1494,53 @@ document.querySelectorAll('.flip-card').forEach(card => {
 });
 </script>
 <script>
-// Guardar datos del formulario en localStorage cada vez que el usuario escribe
-form.addEventListener("input", () => {
-  const formData = {
-    nombre: form.nombre.value,
-    correo: form.correo.value,
-    destinatario: form.destinatario.value,
-    mensaje: form.mensaje.value
-  };
-  localStorage.setItem("formAyudaData", JSON.stringify(formData));
-});
+  const form = document.getElementById("formAyuda");
+  const STORAGE_KEY = "formAyudaData";
+  const EXPIRATION_MINUTES = 5; // tiempo de vida en minutos
 
-// Restaurar datos si existen en localStorage
-window.addEventListener("DOMContentLoaded", () => {
-  const savedData = localStorage.getItem("formAyudaData");
-  if (savedData) {
-    const data = JSON.parse(savedData);
-    form.nombre.value = data.nombre || "";
-    form.correo.value = data.correo || "";
-    form.destinatario.value = data.destinatario || "";
-    form.mensaje.value = data.mensaje || "";
-  }
-});
+  // Guardar datos del formulario en localStorage cada vez que el usuario escribe
+  form.addEventListener("input", () => {
+    const formData = {
+      nombre: form.nombre.value,
+      correo: form.correo.value,
+      destinatario: form.destinatario.value,
+      mensaje: form.mensaje.value,
+      timestamp: Date.now() // ⏱️ Guardar hora exacta
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  });
 
-// 🚀 Cuando se envía correctamente, limpiar localStorage
-form.addEventListener("submit", () => {
-  localStorage.removeItem("formAyudaData");
-});
+  // Restaurar datos si existen en localStorage y no están vencidos
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+      const data = JSON.parse(savedData);
+
+      // Calcular si ya venció
+      const ageMinutes = (Date.now() - data.timestamp) / 1000 / 60;
+
+      if (ageMinutes > EXPIRATION_MINUTES) {
+        // 🗑️ Borrar datos viejos
+        localStorage.removeItem(STORAGE_KEY);
+      } else {
+        // Restaurar solo si son recientes
+        form.nombre.value = data.nombre || "";
+        form.correo.value = data.correo || "";
+        form.destinatario.value = data.destinatario || "";
+        form.mensaje.value = data.mensaje || "";
+      }
+    }
+  });
+
+  // 🚀 Cuando se envía correctamente, limpiar localStorage
+  form.addEventListener("submit", () => {
+    localStorage.removeItem(STORAGE_KEY);
+  });
 </script>
+
 </body>
 </html>
+
 
 
 
