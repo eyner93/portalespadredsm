@@ -690,23 +690,24 @@
     </ul>
   </nav>
 </header>
-
+	
 <script>
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-const iconMenu = document.getElementById('icon-menu');
+const iconPath = document.querySelector('#icon-menu path');
 
 menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 
   // Cambiar icono hamburguesa a X
   if (!mobileMenu.classList.contains('hidden')) {
-    iconMenu.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+    iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X
   } else {
-    iconMenu.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburguesa
   }
 });
 </script>
+
 
 
 
@@ -1639,6 +1640,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
