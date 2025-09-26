@@ -1276,6 +1276,31 @@ window.addEventListener("pageshow", function(event) {
 
 
 
+
+
+<!-- Noticias Varias -->
+<!-- GALERIA DE IMAGENES -->
+
+<section id="avisos" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
+  <h2 class="text-2xl font-bold mb-4">Noticias Varias</h2>
+
+  <div class="relative inline-block rounded-xl shadow-lg overflow-hidden"
+       style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+
+    <img id="slideshow-img" src="https://via.placeholder.com/800x450" 
+         alt="Imagen" 
+         class="rounded-xl shadow-lg h-auto object-contain transition duration-500"
+         style="width: 40vw; max-width: 400px; display:block;">
+    
+    <!-- Botones de navegación -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10095;
+    </button>
+  </div>
+</section>
 <!-- NUESTRAS REDES SOCIALES -->
 <section id="redes" class="container mx-auto py-16 slide-left">
 
@@ -1306,35 +1331,6 @@ window.addEventListener("pageshow", function(event) {
     </div>
   </div>
 </section>
-
-
-
-
-<!-- Noticias Varias -->
-<!-- GALERIA DE IMAGENES -->
-
-<section id="avisos" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
-  <h2 class="text-2xl font-bold mb-4">Noticias Varias</h2>
-
-  <div class="relative inline-block rounded-xl shadow-lg overflow-hidden"
-       style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
-
-    <img id="slideshow-img" src="https://via.placeholder.com/800x450" 
-         alt="Imagen" 
-         class="rounded-xl shadow-lg h-auto object-contain transition duration-500"
-         style="width: 40vw; max-width: 400px; display:block;">
-    
-    <!-- Botones de navegación -->
-    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
-      &#10094;
-    </button>
-    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
-      &#10095;
-    </button>
-  </div>
-</section>
-
-
 
 
 
@@ -1644,5 +1640,6 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
