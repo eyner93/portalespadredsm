@@ -658,34 +658,38 @@
     </a>
 
     <!-- Menú escritorio -->
-    <nav class="hidden md:flex space-x-6 font-medium text-lg">
-      <a href="#inicio" class="hover:text-blue-600">Inicio</a>
-      <a href="#formularios" class="hover:text-blue-600">Formulario de Interés</a>
-      <a href="#enlaces" class="hover:text-blue-600">Enlaces</a>
-      <a href="#ayuda" class="hover:text-blue-600">Ayuda</a>
-      <a href="#redes" class="hover:text-blue-600">Redes Sociales</a>
-      <a href="#avisos" class="hover:text-blue-600">Noticias Varias</a>
-      <a href="#contacto" class="hover:text-blue-600">Contacto</a>
-    </nav>
+<nav class="hidden md:flex space-x-6 font-medium text-lg">
+  <a href="#inicio" class="hover:text-blue-600">Inicio</a>
+  <a href="#formularios" class="hover:text-blue-600">Formulario de Interés</a>
+  <a href="#enlaces" class="hover:text-blue-600">Enlaces</a>
+  <a href="#ayuda" class="hover:text-blue-600">Ayuda</a>
+  <a href="#redes" class="hover:text-blue-600">Redes Sociales</a>
+  <a href="#avisos" class="hover:text-blue-600">Noticias Varias</a>
+  <a href="#contacto" class="hover:text-blue-600">Contacto</a>
+</nav>
 
-    <!-- Botón hamburguesa móvil -->
-    <button id="menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+<!-- Botón hamburguesa fijo (solo móvil) -->
+<button id="menu-btn" 
+  class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 
+         fixed top-4 right-4 z-50 bg-white shadow-lg">
+  <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
 
-  </div>
 <!-- Menú móvil desplegable -->
-<nav id="mobile-menu" class="hidden md:hidden bg-white shadow-md transition-opacity duration-300 opacity-0">
+<nav id="mobile-menu" 
+     class="hidden md:hidden bg-white shadow-md transition-opacity duration-300 opacity-0 
+            fixed top-0 left-0 w-full h-full z-40 overflow-y-auto">
   <ul class="flex flex-col space-y-1 p-4">
-    <li><a href="#inicio" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Inicio</a></li>
-    <li><a href="#formularios" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Formulario de Interés</a></li>
-    <li><a href="#enlaces" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Enlaces</a></li>
-    <li><a href="#ayuda" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Ayuda</a></li>
-    <li><a href="#redes" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Redes Sociales</a></li>
-    <li><a href="#avisos" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Noticias Varias</a></li>
-    <li><a href="#contacto" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Contacto</a></li>
+    <li><a href="#inicio" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Inicio</a></li>
+    <li><a href="#formularios" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Formulario de Interés</a></li>
+    <li><a href="#enlaces" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Enlaces</a></li>
+    <li><a href="#ayuda" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Ayuda</a></li>
+    <li><a href="#redes" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Redes Sociales</a></li>
+    <li><a href="#avisos" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Noticias Varias</a></li>
+    <li><a href="#contacto" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Contacto</a></li>
   </ul>
 </nav>
 
@@ -1654,6 +1658,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
