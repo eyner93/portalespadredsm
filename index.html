@@ -652,7 +652,15 @@
       color: #2563eb; /* azul Tailwind */
       background-color: #e0f2fe;
     }
-	
+
+	#menu-btn {
+  display: block; /* o flex, según diseño */
+  position: fixed; /* opcional, si quieres que quede siempre visible al hacer scroll */
+  top: 1rem; /* ubicación vertical */
+  right: 1rem; /* ubicación horizontal */
+  z-index: 50; /* para que quede encima de otros elementos */
+}
+
 </style>
 </head>
 <body class="bg-gray-50">
@@ -1675,6 +1683,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
