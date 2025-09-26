@@ -685,18 +685,15 @@
   <a href="#contacto" class="hover:text-blue-600">Contacto</a>
 </nav>
 
-<!-- Botón hamburguesa fijo (solo móvil) -->
-<button id="menu-btn" 
-  class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 
-         fixed top-4 right-4 z-50 bg-white shadow-lg">
-  <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-          d="M4 6h16M4 12h16M4 18h16"/>
-  </svg>
-</button>
+<!-- Botón menú móvil -->
+    <button id="menu-btn" class="md:hidden p-2 rounded hover:bg-gray-100">
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
 
 <!-- Menú móvil desplegable -->
-<!-- Menú móvil siempre visible -->
+<nav id="mobile-menu" class="hidden opacity-0 transition-opacity duration-300">
   <ul class="flex flex-col space-y-1 p-4">
     <li><a href="#inicio" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Inicio</a></li>
     <li><a href="#formularios" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded">Formulario de Interés</a></li>
@@ -725,7 +722,7 @@ document.addEventListener("DOMContentLoaded", function() {
       mobileMenu.classList.add("opacity-0");
       setTimeout(() => {
         mobileMenu.classList.add("hidden");
-        iconPath.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        iconPath.setAttribute("d", "M4 6h16M4 12h16M4 18h16"); // hamburguesa
         window.scrollTo(0, scrollPos); // restaurar scroll
       }, 300);
     } else {
@@ -734,7 +731,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Abrir
       mobileMenu.classList.remove("hidden");
       setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
-      iconPath.setAttribute("d", "M6 18L18 6M6 6l12 12");
+      iconPath.setAttribute("d", "M6 18L18 6M6 6l12 12"); // X
     }
   });
 
@@ -751,7 +748,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
-
+	
 <!-- SECCIÓN PRINCIPAL -->
 <section id="inicio" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
   <h2 class="text-3xl font-bold mb-4">Bienvenidos Padres de Familia</h2>
@@ -1681,6 +1678,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
