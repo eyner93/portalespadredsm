@@ -676,40 +676,54 @@
     </button>
 
   </div>
+<!-- Menú móvil desplegable -->
+<nav id="mobile-menu" class="hidden md:hidden bg-white shadow-md transition-opacity duration-300 opacity-0">
+  <ul class="flex flex-col space-y-1 p-4">
+    <li><a href="#inicio" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Inicio</a></li>
+    <li><a href="#formularios" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Formulario de Interés</a></li>
+    <li><a href="#enlaces" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Enlaces</a></li>
+    <li><a href="#ayuda" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Ayuda</a></li>
+    <li><a href="#redes" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Redes Sociales</a></li>
+    <li><a href="#avisos" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Noticias Varias</a></li>
+    <li><a href="#contacto" class="menu-link block px-3 py-2 hover:bg-gray-100 rounded transition-colors">Contacto</a></li>
+  </ul>
+</nav>
 
-  <!-- Menú móvil desplegable -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-    <ul class="flex flex-col space-y-1 p-4">
-      <li><a href="#inicio" class="block px-3 py-2 hover:bg-gray-100 rounded">Inicio</a></li>
-      <li><a href="#formularios" class="block px-3 py-2 hover:bg-gray-100 rounded">Formulario de Interés</a></li>
-      <li><a href="#enlaces" class="block px-3 py-2 hover:bg-gray-100 rounded">Enlaces</a></li>
-      <li><a href="#ayuda" class="block px-3 py-2 hover:bg-gray-100 rounded">Ayuda</a></li>
-      <li><a href="#redes" class="block px-3 py-2 hover:bg-gray-100 rounded">Redes Sociales</a></li>
-      <li><a href="#avisos" class="block px-3 py-2 hover:bg-gray-100 rounded">Noticias Varias</a></li>
-      <li><a href="#contacto" class="block px-3 py-2 hover:bg-gray-100 rounded">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-	
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconPath = document.querySelector('#icon-menu path');
+  const menuLinks = document.querySelectorAll('.menu-link');
 
+  // Toggle menú con animación
   menuBtn.addEventListener('click', () => {
-    if (mobileMenu.style.display === "block") {
-      mobileMenu.style.display = "none";
-      iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburguesa
-    } else {
-      mobileMenu.style.display = "block";
+    if (mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+      setTimeout(() => mobileMenu.classList.add('opacity-100'), 10); // fade in
       iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X
+    } else {
+      mobileMenu.classList.remove('opacity-100');
+      setTimeout(() => mobileMenu.classList.add('hidden'), 300); // fade out
+      iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburguesa
     }
   });
+
+  // Cerrar menú al hacer clic en un enlace + efecto de selección
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Cambiar color de texto al seleccionar
+      menuLinks.forEach(l => l.classList.remove('text-blue-600', 'font-semibold'));
+      link.classList.add('text-blue-600', 'font-semibold');
+
+      // Animación cierre
+      mobileMenu.classList.remove('opacity-100');
+      setTimeout(() => mobileMenu.classList.add('hidden'), 300); // fade out
+      iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+  });
 });
-
 </script>
-
 
 <!-- SECCIÓN PRINCIPAL -->
 <section id="inicio" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
@@ -1640,6 +1654,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
