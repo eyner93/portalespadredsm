@@ -644,26 +644,28 @@
   cursor: pointer;
 }
 
-
-  /* Animación slide-left */
+   /* Animaciones */
     @keyframes slide-left {
       from { transform: translateX(-100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
-    .slide-left {
-      animation: slide-left 0.5s ease-out forwards;
+    .slide-left { animation: slide-left 0.5s ease-out forwards; }
+
+    @keyframes slide-right {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
-	
-<!-- Animación slide-left opcional -->
+    .slide-right { animation: slide-right 0.5s ease-out forwards; }
 
-@keyframes slide-left {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-.slide-left {
-  animation: slide-left 0.5s ease-out forwards;
-}
-
+    /* Menú deslizable móvil */
+    .menu-mobile {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+    }
+    .menu-mobile.open {
+      max-height: 500px; /* suficiente para todos los links */
+    }
 </style>
 </head>
 <body class="bg-gray-50">
@@ -680,14 +682,14 @@
 
     <!-- Botón hamburguesa para móviles -->
     <button id="menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 self-start">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
 
     <!-- Menú de navegación -->
     <nav class="w-full md:w-auto">
-      <ul id="menu" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium text-lg md:text-base bg-white shadow-md md:shadow-none p-4 md:p-0 rounded-md md:rounded-none">
+      <ul id="menu" class="menu-mobile md:flex md:flex-row md:space-x-6 md:space-y-0 flex-col space-y-2 font-medium text-lg md:text-base bg-white md:bg-transparent p-4 md:p-0 rounded-md md:rounded-none shadow-md md:shadow-none">
         <li><a href="#inicio" class="hover:text-blue-600 block px-3 py-2">Inicio</a></li>
         <li><a href="#formularios" class="hover:text-blue-600 block px-3 py-2">Formulario de Interés</a></li>
         <li><a href="#enlaces" class="hover:text-blue-600 block px-3 py-2">Enlaces</a></li>
@@ -701,15 +703,24 @@
   </div>
 </header>
 
-<!-- Script para toggle del menú en móviles -->
+<!-- Script para toggle del menú y animación X -->
 <script>
 const btn = document.getElementById('menu-btn');
 const menu = document.getElementById('menu');
+const iconMenu = document.getElementById('icon-menu');
 
 btn.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+  menu.classList.toggle('open');
+
+  // Cambiar icono hamburguesa a X
+  if(menu.classList.contains('open')){
+    iconMenu.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+  } else {
+    iconMenu.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+  }
 });
 </script>
+
 
 <!-- SECCIÓN PRINCIPAL -->
 <section id="inicio" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
@@ -1640,6 +1651,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
