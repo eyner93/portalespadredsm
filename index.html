@@ -653,25 +653,62 @@
 <!-- HEADER -->
 <header class="bg-white shadow-md sticky top-0 z-50 slide-left">
   <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-3">
-      <a href="https://www.dsm.edu.ni" target="_blank" class="flex items-center space-x-3">
-        <img src="https://raw.githubusercontent.com/eyner93/mantenimiento-logo/main/logo%20new%20coalnic.png" alt="Logo Colegio Alemán" class="h-14">
-        <h1 class="text-xl font-bold hover:text-blue-600">Intranet Padres de Familia</h1>
-      </a>
-    </div>
+    
+    <!-- Logo + Título -->
+    <a href="https://www.dsm.edu.ni" target="_blank" class="flex items-center space-x-3">
+      <img src="https://raw.githubusercontent.com/eyner93/mantenimiento-logo/main/logo%20new%20coalnic.png" alt="Logo Colegio Alemán" class="h-14" loading="lazy">
+      <h1 class="text-xl font-bold hover:text-blue-600">Intranet Padres de Familia</h1>
+    </a>
+
+    <!-- Botón hamburguesa para móviles -->
+    <button id="menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Menú de navegación -->
     <nav>
-      <ul class="flex space-x-6 font-medium">
-        <li><a href="#inicio" class="hover:text-blue-600">Inicio</a></li>
-		<li><a href="#formularios" class="hover:text-blue-600">Formulario de Interés</a></li>
-        <li><a href="#enlaces" class="hover:text-blue-600">Enlaces</a></li>
-		<li><a href="#ayuda" class="hover:text-blue-600">Ayuda</a></li>
-		<li><a href="#redes" class="hover:text-blue-600">Redes Sociales</a></li>
-		<li><a href="#avisos" class="hover:text-blue-600">Noticias Varias</a></li>
-        <li><a href="#contacto" class="hover:text-blue-600">Contacto</a></li>
+      <ul id="menu" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium text-lg md:text-base">
+        <li><a href="#inicio" class="hover:text-blue-600 block px-3 py-2">Inicio</a></li>
+        <li><a href="#formularios" class="hover:text-blue-600 block px-3 py-2">Formulario de Interés</a></li>
+        <li><a href="#enlaces" class="hover:text-blue-600 block px-3 py-2">Enlaces</a></li>
+        <li><a href="#ayuda" class="hover:text-blue-600 block px-3 py-2">Ayuda</a></li>
+        <li><a href="#redes" class="hover:text-blue-600 block px-3 py-2">Redes Sociales</a></li>
+        <li><a href="#avisos" class="hover:text-blue-600 block px-3 py-2">Noticias Varias</a></li>
+        <li><a href="#contacto" class="hover:text-blue-600 block px-3 py-2">Contacto</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
+
+<!-- Contenido principal -->
+<main class="pt-28 md:pt-28">
+  <!-- Aquí va el resto de tu página -->
+</main>
+
+<!-- Script para toggle del menú en móviles -->
+<script>
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
+</script>
+
+<!-- Animación slide-left opcional -->
+<style>
+@keyframes slide-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-left {
+  animation: slide-left 0.5s ease-out forwards;
+}
+</style>
+
 
 <!-- SECCIÓN PRINCIPAL -->
 <section id="inicio" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
@@ -1032,113 +1069,6 @@
 
 </style>
 
-<!-- NUESTRAS REDES SOCIALES -->
-<section id="redes" class="container mx-auto py-16 slide-left">
-
-  <!-- NUESTRA LLAMADA A LA ACCIÓN -->
-  <div class="text-center my-8 follow-us">
-    <h3>Nuestras Redes Sociales</h3>
-    <h3>Síguenos y mantente conectado</h3>
-    
-    <!-- GIFs animados vinculados a redes sociales -->
-    <div class="mt-6 flex justify-center gap-8">
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjl1a3Z4aTNidnVlanBieXp2OW9udTNncTZhdHhtemlubmpmYzFqMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9FbLcp4NnluxdR6EyZ/giphy.gif" 
-             alt="Facebook Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemRnYmdoNWNyNDB1aXRtODVland0MTN2Y3EyZW5uYXozdTJzejExaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uo6rcjwHSAFsQ/giphy.gif" 
-             alt="Instagram Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
-      </a>
-
-      <!-- YouTube -->
-      <a href="https://youtube.com/@colegioalemannicaraguense9449?feature=shared" target="_blank" class="gif-link hover-zoom">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWE4ejRtcWdxZm56NnkweGdjMWFmN2lrZmoya3J2eWpqOHd1cXd4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13Nc3xlO1kGg3S/giphy.gif" 
-             alt="YouTube Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
-      </a>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- Noticias Varias -->
-<!-- GALERIA DE IMAGENES -->
-
-<section id="avisos" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
-  <h2 class="text-2xl font-bold mb-4">Noticias Varias</h2>
-
-  <div class="relative inline-block rounded-xl shadow-lg overflow-hidden"
-       style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
-
-    <img id="slideshow-img" src="https://via.placeholder.com/800x450" 
-         alt="Imagen" 
-         class="rounded-xl shadow-lg h-auto object-contain transition duration-500"
-         style="width: 40vw; max-width: 400px; display:block;">
-    
-    <!-- Botones de navegación -->
-    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
-      &#10094;
-    </button>
-    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
-      &#10095;
-    </button>
-  </div>
-</section>
-
-
-
-
-
-<!-- Chat flotante estilo interactivo -->
-<div class="chat-container">
-  <div class="chat-bubble" id="chatBubble">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </div>
-
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <span>Chatea con nosotros</span>
-      <button id="closeChat">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="message bot">¡Hola! 👋</div>
-      <div class="message bot">Escribe tu mensaje y te responderemos por WhatsApp.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="userMessage" placeholder="Escribe un mensaje..." />
-      <button id="sendMessage">Enviar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MAPAS -->
-<section id="mapas" class="container mx-auto py-16 slide-left">
-  <h2 class="text-2xl font-bold text-center mb-8">Nuestras Sedes</h2>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="maps-container">
-    <div class="fade-in-up" data-delay="0">
-      <h3 class="text-lg font-semibold mb-2 text-center">📍 Mapa - Sede Principal</h3>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.907759263728!2d-86.32903768469244!3d12.086390688590902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f715485c0c982e3%3A0x38f5386f0bf7f3a4!2sColegio%20Alem%C3%A1n%20Nicarag%C3%BCense!5e0!3m2!1ses!2sni!4v1693537871117!5m2!1ses!2sni" 
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-    <div class="fade-in-up" data-delay="0.2">
-      <h3 class="text-lg font-semibold mb-2 text-center">📍 Mapa - Kindergarten</h3>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15717.30707656763!2d-86.3339508!3d12.087179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71548422124c7b%3A0x422e7d5cbae6f852!2sKindergarten%20Colegio%20Alem%C3%A1n%20Nicarag%C3%BCense!5e0!3m2!1ses-419!2sni!4v1693251390123!5m2!1ses-419!2sni" 
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FORMULARIO DE AYUDA -->
 <section id="soporte" class="container mx-auto py-16">
   <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 relative">
@@ -1146,12 +1076,12 @@
     <h2 class="text-2xl font-bold text-center mb-8">Formulario de Ayuda</h2>
 
     <form id="formAyuda">
-		
-<label for="nombre">Nombre del solicitante:</label>
+
+      <label for="nombre">Nombre del solicitante:</label>
       <input type="text" id="nombre" name="nombre" required 
              class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
-		
-    <label for="correo" class="block font-semibold mb-1">Correo electrónico del solicitante:</label>
+			 
+<label for="correo" class="block font-semibold mb-1">Correo electrónico del solicitante:</label>
 <input 
   type="email" 
   id="correo" 
@@ -1161,7 +1091,7 @@
   class="w-full border rounded p-2 mb-2 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none">
 
 <p id="errorCorreo" class="hidden text-red-600 text-sm flex items-center gap-1">
-  👉 <span>⚠️ Debe ingresar su correo de padre <strong>@padre.dsm.edu.ni</strong></span>
+  👉 <span>⚠️ Debe ingresar su correo institucional <strong>@padre.dsm.edu.ni</strong></span>
 </p>
 
 <script>
@@ -1203,6 +1133,7 @@
       <label for="mensaje">¿En qué necesitas ayuda?</label>
       <textarea id="mensaje" name="mensaje" rows="4" required 
                 class="w-full border rounded p-2 mb-4 focus:border-green-400 focus:ring focus:ring-green-200 focus:outline-none"></textarea>
+
 
       <button type="submit" 
               class="bg-blue-600 hover:bg-blue-700 focus:bg-green-500 active:bg-green-600 text-white font-semibold py-2 px-4 rounded w-full transition-colors duration-200">
@@ -1344,6 +1275,91 @@ window.addEventListener("pageshow", function(event) {
 
 
 
+<!-- NUESTRAS REDES SOCIALES -->
+<section id="redes" class="container mx-auto py-16 slide-left">
+
+  <!-- NUESTRA LLAMADA A LA ACCIÓN -->
+  <div class="text-center my-8 follow-us">
+    <h3>Nuestras Redes Sociales</h3>
+    <h3>Síguenos y mantente conectado</h3>
+    
+    <!-- GIFs animados vinculados a redes sociales -->
+    <div class="mt-6 flex justify-center gap-8">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjl1a3Z4aTNidnVlanBieXp2OW9udTNncTZhdHhtemlubmpmYzFqMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9FbLcp4NnluxdR6EyZ/giphy.gif" 
+             alt="Facebook Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/dsmanagua" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemRnYmdoNWNyNDB1aXRtODVland0MTN2Y3EyZW5uYXozdTJzejExaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uo6rcjwHSAFsQ/giphy.gif" 
+             alt="Instagram Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/@colegioalemannicaraguense9449?feature=shared" target="_blank" class="gif-link hover-zoom">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWE4ejRtcWdxZm56NnkweGdjMWFmN2lrZmoya3J2eWpqOHd1cXd4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13Nc3xlO1kGg3S/giphy.gif" 
+             alt="YouTube Animación" class="gif-float w-64 h-64 md:w-80 md:h-80">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Noticias Varias -->
+<!-- GALERIA DE IMAGENES -->
+
+<section id="avisos" class="text-center py-16 bg-gradient-to-r from-blue-50 to-blue-100 slide-right">
+  <h2 class="text-2xl font-bold mb-4">Noticias Varias</h2>
+
+  <div class="relative inline-block rounded-xl shadow-lg overflow-hidden"
+       style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+
+    <img id="slideshow-img" src="https://via.placeholder.com/800x450" 
+         alt="Imagen" 
+         class="rounded-xl shadow-lg h-auto object-contain transition duration-500"
+         style="width: 40vw; max-width: 400px; display:block;">
+    
+    <!-- Botones de navegación -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-800 rounded-full p-3 shadow-lg">
+      &#10095;
+    </button>
+  </div>
+</section>
+
+
+
+
+
+<!-- Chat flotante estilo interactivo -->
+<div class="chat-container">
+  <div class="chat-bubble" id="chatBubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </div>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <span>Chatea con nosotros</span>
+      <button id="closeChat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="message bot">¡Hola! 👋</div>
+      <div class="message bot">Escribe tu mensaje y te responderemos por WhatsApp.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userMessage" placeholder="Escribe un mensaje..." />
+      <button id="sendMessage">Enviar</button>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- FOOTER -->
 <footer id="contacto" class="bg-blue-900 text-white py-8 slide-left">
@@ -1397,6 +1413,7 @@ const images = [
   {"name":"8 sept.jpg","url":"https://raw.githubusercontent.com/eyner93/portalespadredsm/main/8_sept.jpg","color":"#a855f7"},
   {"name":"10 sept.jpg","url":"https://raw.githubusercontent.com/eyner93/portalespadredsm/main/10_sept.jpg","color":"#f87171"}
 ];
+
 
 let current = 0;
 const img = document.getElementById("slideshow-img");
@@ -1493,11 +1510,11 @@ document.querySelectorAll('.flip-card').forEach(card => {
   });
 });
 </script>
-	
+
 <script>
 (function(){
   const STORAGE_KEY = "formAyudaData";
-  const EXPIRATION_MINUTES = 5; // tiempo de vida en minutos
+  const EXPIRATION_MINUTES = 1; // tiempo de vida en minutos
   const DEBUG = true; // cambia a false en producción
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -1622,13 +1639,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
   });
 })();
 </script>
+
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
