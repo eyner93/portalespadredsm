@@ -1407,42 +1407,57 @@ const images = [
   {"name":"10.jpg","url":"https://raw.githubusercontent.com/eyner93/portalespadredsm/main/10_sept.jpg","color":"#f87171"}
 ];
 
-
 let current = 0;
 const img = document.getElementById("slideshow-img");
 
-function showImage(index){
+// Función que verifica si la imagen existe
+function imageExists(url) {
+  return new Promise((resolve) => {
+    const testImg = new Image();
+    testImg.onload = () => resolve(true);
+    testImg.onerror = () => resolve(false);
+    testImg.src = url;
+  });
+}
+
+// Función para mostrar la siguiente imagen válida
+async function showImage(index){
   img.classList.remove('show');
+  
+  let validIndex = index;
+  let tries = 0;
+  while (tries < images.length) {
+    const exists = await imageExists(images[validIndex].url);
+    if (exists) break;
+    validIndex = (validIndex + 1) % images.length;
+    tries++;
+  }
+  
   setTimeout(() => {
-    img.src = images[index].url;
+    img.src = images[validIndex].url;
     img.classList.add('show');
+    current = validIndex;
   }, 300);
 }
 
+// Botones prev y next
 document.getElementById('prev').addEventListener('click', () => {
-  current = (current - 1 + images.length) % images.length;
-  showImage(current);
+  showImage((current - 1 + images.length) % images.length);
 });
 
 document.getElementById('next').addEventListener('click', () => {
-  current = (current + 1) % images.length;
-  showImage(current);
+  showImage((current + 1) % images.length);
 });
 
 // Auto-slideshow
 setInterval(() => {
-  current = (current + 1) % images.length;
-  showImage(current);
-}, 5000); // Cambia cada 5 segundos
+  showImage((current + 1) % images.length);
+}, 5000);
 
 // Inicializar
 showImage(current);
 </script>
 
-
-</script>
-  <!-- tu formulario aquí -->
-</script>
 <script>
 const bubble = document.getElementById('chatBubble');
 const chatWindow = document.getElementById('chatWindow');
@@ -1642,6 +1657,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
