@@ -1089,32 +1089,44 @@ const cards = document.querySelectorAll('.flip-card');
 let activeCard = null;
 let activeTimer = null;
 
+function flipCard(inner) {
+  // Cerrar tarjeta activa si no es la misma
+  if (activeCard && activeCard !== inner) {
+    activeCard.classList.remove('flipped');
+    if (activeTimer) clearTimeout(activeTimer);
+    activeCard = null;
+  }
+
+  // Si la tarjeta ya estaba abierta, la cerramos
+  if (inner.classList.contains('flipped')) {
+    inner.classList.remove('flipped');
+    if (activeTimer) clearTimeout(activeTimer);
+    activeCard = null;
+    return;
+  }
+
+  // Abrir la tarjeta
+  inner.classList.add('flipped');
+  activeCard = inner;
+
+  // Timer de 1 minuto para cerrarla automáticamente
+  activeTimer = setTimeout(() => {
+    inner.classList.remove('flipped');
+    activeCard = null;
+    activeTimer = null;
+  }, 60000);
+}
+
+// Asignar eventos a cada tarjeta
 cards.forEach(card => {
   const inner = card.querySelector('.flip-card-inner');
 
-  function flipCard() {
-    if (activeTimer) clearTimeout(activeTimer);
-
-    if (activeCard && activeCard !== inner) {
-      activeCard.classList.remove('flipped');
-    }
-
-    inner.classList.add('flipped');
-    activeCard = inner;
-
-    activeTimer = setTimeout(() => {
-      inner.classList.remove('flipped');
-      activeCard = null;
-      activeTimer = null;
-    }, 60000);
-  }
-
-  card.addEventListener('click', flipCard);
+  card.addEventListener('click', () => flipCard(inner));
 
   card.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      flipCard();
+      flipCard(inner);
     }
   });
 });
@@ -1703,6 +1715,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 </script>
 </body>
 </html>
+
 
 
 
